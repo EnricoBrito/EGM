@@ -1,0 +1,61 @@
+[
+  {
+    "id": "smart-auto",
+    "nome": "Smart Auto Veículos",
+    "categoria": "Concessionária de veículos",
+    "services": ["bot", "trafego", "sistema"],
+    "summary": "Bot de atendimento no WhatsApp, tráfego pago pra gerar interesse e um sistema interno pra organizar tudo, do lead até a venda fechada.",
+    "detail": "A Smart Auto recebe lead qualificado pelo bot no WhatsApp, que consulta o estoque disponível e já manda foto do carro. O tráfego pago alimenta esse funil com gente realmente interessada, e o sistema interno organiza cada etapa da negociação pra ninguém ficar esperando resposta.",
+    "metric": "Do anúncio à negociação, sem perder lead no meio do caminho",
+    "gallery": [
+      "Conversa do bot qualificando um lead",
+      "Consulta de estoque em tempo real",
+      "Painel interno de negociação",
+      "Campanha ativa no Meta Ads"
+    ]
+  },
+  {
+    "id": "plus-camas",
+    "nome": "Plus Camas e Colchões",
+    "categoria": "Distribuidora de colchões",
+    "services": ["trafego", "bot"],
+    "summary": "Tráfego pago atraindo interessados e um bot vendedor consultivo que qualifica, recomenda o modelo certo e fecha pedido direto no WhatsApp.",
+    "detail": "As campanhas trazem gente pra dentro da conversa, e o bot assume dali: entende se é pra casal ou solteiro, nível de firmeza, orçamento, recomenda o colchão certo do catálogo e fecha o pedido validando até o endereço de entrega.",
+    "metric": "Atendimento consultivo 100% automático, do anúncio ao pedido fechado",
+    "gallery": [
+      "Bot recomendando o colchão certo",
+      "Fechamento de pedido pelo WhatsApp",
+      "Campanha ativa no Instagram"
+    ]
+  },
+  {
+    "id": "autoescola-virtual",
+    "nome": "Autoescola Virtual",
+    "categoria": "Autoescola em São Miguel Paulista, SP",
+    "services": ["site", "sistema", "trafego"],
+    "summary": "Site institucional, sistema completo de gestão da autoescola e tráfego pago pra atrair novos alunos na região.",
+    "detail": "Site pra apresentar a autoescola e captar interesse, sistema interno cuidando de matrícula, professores, veículos e agenda de aulas, e tráfego pago levando gente da região direto pro funil de matrícula.",
+    "metric": "Da campanha à matrícula, tudo dentro de um único fluxo",
+    "gallery": [
+      "Site institucional",
+      "Agenda de aulas no sistema",
+      "Cadastro de alunos e professores",
+      "Anúncio no Facebook"
+    ]
+  },
+  {
+    "id": "chaveiro-spedy",
+    "nome": "Chaveiro Spedy",
+    "categoria": "Chaveiro 24h",
+    "services": ["google-ads", "bot", "site", "relatorios"],
+    "summary": "Google Ads pra aparecer na hora da emergência, bot de atendimento no WhatsApp, site institucional e relatórios de desempenho.",
+    "detail": "Quem precisa de chaveiro procura na hora do aperto. O Google Ads garante que a Spedy apareça primeiro. O bot no WhatsApp já atende a urgência, o site passa confiança pra quem pesquisa antes de chamar, e os relatórios mostram exatamente de onde vem cada cliente.",
+    "metric": "Do clique no anúncio ao atendimento, em poucos minutos",
+    "gallery": [
+      "Anúncio no topo do Google",
+      "Bot atendendo uma emergência",
+      "Site institucional",
+      "Relatório de resultado mensal"
+    ]
+  }
+]

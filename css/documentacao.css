@@ -1,0 +1,65 @@
+/* ============================================================
+   EGM — documentação page
+   ============================================================ */
+.doc-hero{ padding:150px 0 60px; border-bottom:1px solid var(--line); }
+.doc-hero__title{ max-width:34ch; }
+
+.doc-section{ padding:80px 0; border-bottom:1px solid var(--line); }
+.doc-note{ color:var(--gray-600); font-size:.9rem; margin-top:1.5rem; max-width:60ch; }
+
+/* ---------- prazos ---------- */
+.doc-stats{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-top:2.5rem; }
+.doc-stat{ background:var(--paper); padding:2rem; }
+.doc-stat__value{ display:block; font-family:var(--font-display); font-size:2.2rem; margin-bottom:.5rem; }
+.doc-stat__label{ display:block; font-size:.82rem; color:var(--gray-600); font-family:var(--font-sans); max-width:32ch; }
+
+@media (max-width:600px){
+  .doc-stats{ grid-template-columns:1fr; }
+}
+
+/* ---------- processo detalhado ---------- */
+.doc-process{ list-style:none; margin:2.5rem 0 0; padding:0; display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); }
+.doc-process li{ background:var(--paper-dim); padding:1.5rem 1.75rem; display:flex; gap:1.25rem; align-items:baseline; }
+.doc-process__num{ font-family:var(--font-mono); font-size:.85rem; color:var(--gray-600); flex-shrink:0; width:2.5em; }
+.doc-process__body h3{ font-size:1.05rem; margin-bottom:.3rem; }
+.doc-process__body p{ color:var(--gray-600); font-family:var(--font-sans); font-size:.9rem; max-width:60ch; }
+
+/* ---------- stack ---------- */
+.doc-stack{ display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; align-items:start; }
+.doc-chips{ display:flex; flex-wrap:wrap; gap:.6rem; list-style:none; margin:0; padding:0; align-content:flex-start; }
+.doc-chips li{
+  font-family:var(--font-mono); font-size:.8rem; border:1px solid var(--line); border-radius:100px;
+  padding:.5em 1.1em; color:var(--ink-soft);
+}
+@media (max-width:800px){
+  .doc-stack{ grid-template-columns:1fr; }
+}
+
+.doc-inline-link{ border-bottom:1px dashed var(--ink); }
+.doc-inline-link:hover{ border-style:solid; }
+
+/* ---------- FAQ ---------- */
+.faq-list{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); margin-top:2rem; }
+.faq-item{ background:var(--paper); }
+.faq-item summary{
+  cursor:pointer; padding:1.35rem 1.75rem; font-family:var(--font-display); font-weight:600;
+  font-size:1rem; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;
+}
+.faq-item summary::-webkit-details-marker{ display:none; }
+.faq-item summary::after{ content:'+'; font-family:var(--font-mono); font-size:1.2rem; color:var(--gray-600); flex-shrink:0; transition:transform .2s var(--ease); }
+.faq-item[open] summary::after{ transform:rotate(45deg); }
+.faq-item[open] summary{ border-bottom:1px solid var(--line); }
+.faq-item p{ padding:0 1.75rem 1.5rem; color:var(--gray-600); font-family:var(--font-sans); font-size:.92rem; max-width:64ch; }
+
+/* ---------- closing CTA ---------- */
+.doc-cta{ padding:80px 0; }
+.doc-cta__inner{ display:flex; justify-content:space-between; align-items:center; gap:2rem; flex-wrap:wrap; }
+.doc-cta__title{ margin-bottom:.4rem; }
+.doc-cta__lead{ margin-bottom:0; }
+.doc-cta__actions{ display:flex; gap:.75rem; flex-wrap:wrap; }
+
+@media (max-width:700px){
+  .doc-cta__inner{ text-align:center; flex-direction:column; }
+  .doc-cta__actions{ width:100%; }
+  .doc-cta__actions .btn{ flex:1; justify-content:center; }
+}

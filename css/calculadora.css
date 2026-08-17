@@ -1,0 +1,73 @@
+/* ============================================================
+   EGM — calculadora page (extends css/style.css tokens)
+   ============================================================ */
+.calc-hero{ padding:150px 0 50px; border-bottom:1px solid var(--line); }
+.calc-hero__title{ max-width:34ch; }
+
+.calc-currency{ display:inline-flex; border:1px solid var(--ink); border-radius:100px; overflow:hidden; margin-top:.5rem; }
+.calc-currency__btn{
+  font-family:var(--font-mono); font-size:.8rem; padding:.65em 1.3em; color:var(--gray-600);
+  transition:background .18s var(--ease), color .18s var(--ease);
+}
+.calc-currency__btn.is-active{ background:var(--ink); color:var(--paper); }
+.calc-currency__btn:not(.is-active):hover{ color:var(--ink); }
+
+.calc-body{ padding:70px 0 120px; }
+.calc-grid{ display:grid; grid-template-columns:1.35fr 1fr; gap:3rem; align-items:start; }
+
+/* ---------- toggle cards ---------- */
+.calc-options{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line);
+}
+.calc-options__loading{ grid-column:1/-1; padding:2rem; font-family:var(--font-mono); font-size:.85rem; color:var(--gray-600); background:var(--paper); }
+.toggle-card{ display:block; cursor:pointer; }
+.toggle-card input{ position:absolute; opacity:0; width:0; height:0; }
+.toggle-card__box{
+  display:block; height:100%; background:var(--paper); padding:1.5rem;
+  transition:background .18s var(--ease), color .18s var(--ease);
+}
+.toggle-card__box strong{ display:block; font-family:var(--font-display); font-size:1rem; margin-bottom:.5rem; }
+.toggle-card__box small{ display:block; font-family:var(--font-sans); font-size:.82rem; color:var(--gray-600); margin-bottom:1.1rem; line-height:1.5; }
+.toggle-card__box em{ display:block; font-style:normal; font-family:var(--font-mono); font-size:.8rem; letter-spacing:.02em; }
+.toggle-card input:checked + .toggle-card__box{ background:var(--ink); color:var(--paper); }
+.toggle-card input:checked + .toggle-card__box small{ color:var(--dark-text-dim); }
+.toggle-card input:focus-visible + .toggle-card__box{ outline:2px solid var(--ink); outline-offset:-2px; }
+
+@media (max-width:640px){
+  .calc-options{ grid-template-columns:1fr; }
+}
+
+/* ---------- summary / output ---------- */
+.calc-summary{ position:sticky; top:90px; }
+.calc-output{
+  border:1px solid var(--ink); border-radius:var(--radius); padding:2.25rem;
+  display:flex; flex-direction:column; gap:1.5rem;
+}
+.calc-total{ display:flex; align-items:baseline; gap:.4rem; flex-wrap:wrap; }
+.calc-total__label{ width:100%; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--dark-text-dim); margin-bottom:.4rem; }
+.calc-total__value{ font-family:var(--font-display); font-size:2.4rem; line-height:1; }
+.calc-total__hint{ font-family:var(--font-mono); font-size:.85rem; color:var(--dark-text-dim); }
+
+.calc-setup{
+  display:flex; justify-content:space-between; align-items:baseline; font-size:.85rem;
+  padding-top:1rem; border-top:1px solid var(--dark-line); color:var(--dark-text-dim);
+}
+.calc-setup strong{ color:var(--dark-text); font-size:1rem; }
+
+.calc-breakdown{ display:flex; flex-direction:column; gap:.1rem; }
+.calc-breakdown__row{
+  display:flex; justify-content:space-between; gap:1rem; font-size:.8rem;
+  padding:.55em 0; border-bottom:1px dashed var(--dark-line); color:var(--dark-text-dim);
+}
+.calc-breakdown__row strong{ color:var(--dark-text); font-weight:500; }
+.calc-breakdown__empty{ font-size:.82rem; color:var(--dark-text-dim); }
+
+.calc-note{ font-size:.76rem; color:var(--dark-text-dim); line-height:1.6; }
+
+.calc-cta{ width:100%; justify-content:center; }
+
+@media (max-width:900px){
+  .calc-grid{ grid-template-columns:1fr; }
+  .calc-summary{ position:static; }
+}

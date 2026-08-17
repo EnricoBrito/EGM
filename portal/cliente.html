@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu painel | Portal EGM</title>
+<link rel="icon" type="image/png" href="../assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+
+<header class="portal-topbar">
+  <div class="portal-topbar__inner">
+    <span class="portal-topbar__logo"><a href="../index.html">EGM</a></span>
+    <div class="portal-topbar__meta">
+      <span class="portal-topbar__role">cliente</span>
+      <span class="portal-topbar__user" id="topbarUser">…</span>
+      <a href="login.html" class="portal-logout">sair</a>
+    </div>
+  </div>
+</header>
+
+<main class="portal-main" id="portalMain">
+
+  <div class="portal-header">
+    <div>
+      <h1 id="pageTitle">Carregando...</h1>
+      <p id="pageSubtitle"></p>
+    </div>
+  </div>
+
+  <p class="portal-note">Isso é uma demonstração de interface: os dados vêm de arquivos JSON estáticos, não de um banco de verdade. Chamados abertos por aqui tentam ir pro n8n; se não conseguir, cai no WhatsApp.</p>
+
+  <div class="stat-grid" id="statGrid"></div>
+
+  <section class="panel">
+    <div class="panel__head"><h2>Meus sistemas</h2></div>
+    <div class="panel__body">
+      <div class="system-grid" id="systemGrid"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel__head">
+      <h2>Mensagens dos últimos 14 dias</h2>
+      <span class="row-action" id="totalMessages"></span>
+    </div>
+    <div class="panel__body">
+      <svg class="bar-chart" id="messageChart" viewBox="0 0 640 220" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="chart-legend"><span>■ mensagens automáticas trocadas pelo bot / sistema por dia</span></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel__head"><h2>Abrir chamado</h2></div>
+    <div class="panel__body">
+      <form id="ticketForm" autocomplete="off">
+        <div class="modal__box" style="border:none;padding:0;background:none;color:inherit;">
+          <div class="field" style="margin-bottom:1rem;">
+            <label for="ticketSystem">sistema relacionado</label>
+            <select id="ticketSystem"></select>
+          </div>
+          <div class="field" style="margin-bottom:1rem;">
+            <label for="ticketTitle">título</label>
+            <input type="text" id="ticketTitle" placeholder="ex: Bot não está respondendo áudio" required>
+          </div>
+          <div class="field" style="margin-bottom:1rem;">
+            <label for="ticketUrgency">urgência</label>
+            <select id="ticketUrgency">
+              <option value="baixa">Baixa</option>
+              <option value="media" selected>Média</option>
+              <option value="alta">Alta: sistema fora do ar</option>
+            </select>
+          </div>
+          <div class="field" style="margin-bottom:1rem;">
+            <label for="ticketDesc">descrição</label>
+            <textarea id="ticketDesc" rows="4" placeholder="Descreva o que está acontecendo" required></textarea>
+          </div>
+        </div>
+        <p class="form-msg" id="ticketMsg" role="alert"></p>
+        <div style="display:flex; gap:.75rem; flex-wrap:wrap;">
+          <button type="submit" class="btn btn--primary" id="ticketSubmitBtn">Enviar chamado</button>
+          <button type="button" class="btn btn--ghost" id="ticketWhatsappBtn">Chamar direto no WhatsApp</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel__head"><h2>Meus chamados</h2></div>
+    <div class="panel__body table-wrap">
+      <table class="data-table" id="ticketsTable">
+        <thead><tr><th>Protocolo</th><th>Título</th><th>Urgência</th><th>Status</th><th>Aberto em</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/portal-data.js"></script>
+<script src="js/cliente.js"></script>
+</body>
+</html>

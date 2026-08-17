@@ -1,0 +1,7 @@
+[
+  { "id": "u-smart-auto", "role": "cliente", "clienteId": "smart-auto", "email": "contato@smartautoveiculos.com.br", "senha": "smartauto123" },
+  { "id": "u-plus-camas", "role": "cliente", "clienteId": "plus-camas", "email": "contato@pluscamas.com.br", "senha": "pluscamas123" },
+  { "id": "u-autoescola-virtual", "role": "cliente", "clienteId": "autoescola-virtual", "email": "contato@autoescolavirtual.com.br", "senha": "autoescola123" },
+  { "id": "u-chaveiro-spedy", "role": "cliente", "clienteId": "chaveiro-spedy", "email": "contato@chaveirospedy.com.br", "senha": "chaveiro123" },
+  { "id": "u-ti", "role": "ti", "email": "ti@egm.dev", "senha": "egmadmin123" }
+]

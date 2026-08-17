@@ -1,0 +1,63 @@
+{
+  "moedas": {
+    "brl": { "simbolo": "R$", "nome": "Real (Brasil)" },
+    "aoa": { "simbolo": "Kz", "nome": "Kwanza (Angola)" }
+  },
+  "services": [
+    {
+      "id": "bot",
+      "label": "Bot + IA (WhatsApp)",
+      "description": "Inclui IA, integração com WhatsApp, automações e hospedagem do fluxo",
+      "precos": {
+        "brl": { "mensal": 690, "implantacao": 3500 },
+        "aoa": { "mensal": 215000, "implantacao": 371000 }
+      }
+    },
+    {
+      "id": "sistema",
+      "label": "Sistema (Painel / ERP / CRM)",
+      "description": "Inclui banco de dados, hospedagem, manutenção e estrutura de gestão",
+      "precos": {
+        "brl": { "mensal": 790, "implantacao": 6000 },
+        "aoa": { "mensal": 245000, "implantacao": 424000 }
+      }
+    },
+    {
+      "id": "site",
+      "label": "Site institucional",
+      "description": "Inclui domínio, hospedagem, manutenção e estrutura institucional",
+      "precos": {
+        "brl": { "mensal": 390, "implantacao": 2500 },
+        "aoa": { "mensal": 122000, "implantacao": 211000 }
+      }
+    },
+    {
+      "id": "trafego",
+      "label": "Tráfego Pago (Meta: Facebook/Instagram)",
+      "description": "Gestão de campanhas. Verba de mídia é à parte, paga direto à Meta",
+      "precos": {
+        "brl": { "mensal": 590, "implantacao": 800 },
+        "aoa": { "mensal": 183000, "implantacao": 316000 }
+      }
+    },
+    {
+      "id": "google-ads",
+      "label": "Google Ads",
+      "description": "Gestão de campanhas. Verba de mídia é à parte, paga direto ao Google",
+      "precos": {
+        "brl": { "mensal": 590, "implantacao": 800 },
+        "aoa": { "mensal": 183000, "implantacao": 316000 }
+      }
+    },
+    {
+      "id": "relatorios",
+      "label": "Relatórios automatizados",
+      "description": "Painel de acompanhamento de resultado, atualizado sozinho",
+      "precos": {
+        "brl": { "mensal": 190, "implantacao": 500 },
+        "aoa": { "mensal": 61000, "implantacao": 105000 }
+      }
+    }
+  ],
+  "nota": "Não inclui verba de mídia paga (Meta/Google). Os investimentos em anúncios são definidos por você e pagos direto às respectivas plataformas."
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "trafego",
+    "eyebrow": "tráfego pago",
+    "name": "Tráfego Pago",
+    "tagline": "Facebook, Instagram e Google Ads, gerenciados de ponta a ponta.",
+    "detail": "Cuidamos da campanha inteira: público, criativo, orçamento e otimização. Você não precisa aprender a mexer no Gerenciador de Anúncios nem no Google Ads, só recebe o relatório de quanto voltou pra cada real investido. O valor da verba de mídia é decidido por você e pago direto à plataforma; o que cobramos é a gestão.",
+    "includes": ["Configuração de campanha", "Criativos e segmentação", "Acompanhamento e otimização semanal", "Relatório de resultado"]
+  },
+  {
+    "id": "site",
+    "eyebrow": "site",
+    "name": "Site",
+    "tagline": "Presença digital feita sob medida, sem builder genérico.",
+    "detail": "Site institucional, landing page ou configurador de produto, construído em código, não em template. Isso significa carregamento rápido, design que não parece com todo mundo, e liberdade total pra crescer depois sem esbarrar em limitação de plataforma.",
+    "includes": ["Design personalizado", "Performance otimizada", "Domínio e hospedagem configurados", "Ajustes de SEO básico"]
+  },
+  {
+    "id": "sistema",
+    "eyebrow": "sistema",
+    "name": "Sistema",
+    "tagline": "ERP, CRM e painéis feitos pro seu processo, não o contrário.",
+    "detail": "Construímos o sistema em volta de como seu negócio já funciona: cadastro, agenda, controle de estoque, financeiro, o que fizer sentido pra sua operação. Banco de dados seguro, acesso por perfil, e nada de módulo genérico que você paga e nunca usa.",
+    "includes": ["Levantamento do processo real", "Banco de dados seguro", "Painel com controle de acesso por perfil", "Suporte e ajustes pós-entrega"]
+  },
+  {
+    "id": "bot",
+    "eyebrow": "bot + ia",
+    "name": "Bot + IA",
+    "tagline": "Atendimento e vendas no WhatsApp, no automático.",
+    "detail": "Um bot com IA que conversa de verdade. Entende contexto, não só palavra-chave, qualifica o cliente, indica produto, tira dúvida e fecha pedido, 24 horas por dia, sem perder o tom da sua marca. Quando precisa de um humano, ele sabe transferir a conversa na hora certa.",
+    "includes": ["Fluxo de conversa personalizado", "Integração com catálogo, estoque e pagamento", "Transferência pra atendimento humano quando necessário", "Ajuste contínuo do comportamento"]
+  }
+]

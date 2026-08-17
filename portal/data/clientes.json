@@ -1,0 +1,102 @@
+[
+  {
+    "id": "smart-auto",
+    "nome": "Smart Auto Veículos",
+    "responsavel": "Gerência Smart Auto",
+    "status": "ativo",
+    "pagamento": "em_dia",
+    "planoValorMensal": 2070,
+    "inicioContrato": "2026-03-18",
+    "sistemas": [
+      {
+        "id": "bot-smart-auto",
+        "tipo": "bot",
+        "nome": "Bot de Atendimento",
+        "status": "online",
+        "promptResumo": "Qualifica lead de compra de veículo pelo WhatsApp, consulta o estoque disponível, envia fotos do carro e transfere pro vendedor humano quando o lead está pronto pra negociar.",
+        "ultimaAtualizacao": "2026-07-30"
+      },
+      {
+        "id": "sistema-smart-auto",
+        "tipo": "sistema",
+        "nome": "Sistema Interno",
+        "status": "online",
+        "promptResumo": null,
+        "ultimaAtualizacao": "2026-06-14"
+      }
+    ]
+  },
+  {
+    "id": "plus-camas",
+    "nome": "Plus Camas e Colchões",
+    "responsavel": "Comercial Plus Camas",
+    "status": "ativo",
+    "pagamento": "em_dia",
+    "planoValorMensal": 1280,
+    "inicioContrato": "2025-11-03",
+    "sistemas": [
+      {
+        "id": "bot-plus-camas",
+        "tipo": "bot",
+        "nome": "Bot de Vendas",
+        "status": "online",
+        "promptResumo": "Vendedor consultivo de colchões via WhatsApp. Fase 1 descobre a necessidade (casal ou solteiro, firmeza, orçamento). Fase 2 recomenda o modelo do catálogo. Fase 3 fecha o pedido e valida o endereço de entrega via CEP.",
+        "ultimaAtualizacao": "2026-07-22"
+      }
+    ]
+  },
+  {
+    "id": "autoescola-virtual",
+    "nome": "Autoescola Virtual",
+    "responsavel": "Direção Autoescola",
+    "status": "ativo",
+    "pagamento": "atrasado",
+    "planoValorMensal": 1770,
+    "inicioContrato": "2026-01-10",
+    "sistemas": [
+      {
+        "id": "site-autoescola",
+        "tipo": "site",
+        "nome": "Site Institucional",
+        "status": "online",
+        "promptResumo": null,
+        "ultimaAtualizacao": "2026-04-02"
+      },
+      {
+        "id": "sistema-autoescola",
+        "tipo": "sistema",
+        "nome": "Sistema de Gestão",
+        "status": "online",
+        "promptResumo": null,
+        "ultimaAtualizacao": "2026-06-01"
+      }
+    ]
+  },
+  {
+    "id": "chaveiro-spedy",
+    "nome": "Chaveiro Spedy",
+    "responsavel": "Chaveiro Spedy",
+    "status": "ativo",
+    "pagamento": "em_dia",
+    "planoValorMensal": 1860,
+    "inicioContrato": "2026-05-05",
+    "sistemas": [
+      {
+        "id": "bot-chaveiro",
+        "tipo": "bot",
+        "nome": "Bot de Atendimento",
+        "status": "online",
+        "promptResumo": "Atende a urgência do cliente 24h pelo WhatsApp, entende o tipo de serviço necessário (chave, fechadura, carro) e já orienta o tempo de chegada.",
+        "ultimaAtualizacao": "2026-08-01"
+      },
+      {
+        "id": "site-chaveiro",
+        "tipo": "site",
+        "nome": "Site Institucional",
+        "status": "online",
+        "promptResumo": null,
+        "ultimaAtualizacao": "2026-05-20"
+      }
+    ]
+  }
+]

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora | EGM</title>
+<meta name="description" content="Monte sua combinação de site, sistema, bot com IA e tráfego pago e veja a mensalidade estimada na hora.">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora | EGM">
+<meta property="og:description" content="Monte sua combinação de serviços e veja a mensalidade estimada na hora.">
+<meta property="og:image" content="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/calculadora.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">EGM</a>
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="index.html#sobre">quem somos</a>
+      <a href="index.html#servicos">o que fazemos</a>
+      <a href="index.html#trabalhos">trabalhos</a>
+      <a href="calculadora.html">calculadora</a>
+      <a href="documentacao.html">documentação</a>
+      <a href="https://wa.me/5511942544758?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20reuni%C3%A3o%20com%20a%20EGM." target="_blank" rel="noopener" class="nav__cta nav__cta--primary">marcar reunião</a>
+      <a href="index.html#clientes" class="nav__cta">área de clientes</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="calc-hero">
+    <div class="section-inner">
+      <p class="eyebrow">/// calculadora</p>
+      <h1 class="section-title calc-hero__title">Quanto custa ter a EGM trabalhando pro seu negócio.</h1>
+      <p class="section-lead">Selecione o que você precisa. A mensalidade já inclui hospedagem, banco de dados e as APIs necessárias (WhatsApp, IA, etc). Pra um combo completo, o valor costuma ficar em torno de <strong id="calcBallpark">R$ 2.000/mês</strong>. Verba de mídia paga (Meta/Google) é decidida por você e vai direto pra plataforma, não entra nessa conta.</p>
+      <div class="calc-currency" id="calcCurrency" role="tablist" aria-label="Escolher moeda">
+        <button type="button" class="calc-currency__btn is-active" data-currency="brl" role="tab" aria-selected="true">R$ Real (Brasil)</button>
+        <button type="button" class="calc-currency__btn" data-currency="aoa" role="tab" aria-selected="false">Kz Kwanza (Angola)</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-body">
+    <div class="section-inner calc-grid">
+
+      <div class="calc-options" id="calcOptions" aria-label="Serviços disponíveis">
+        <p class="calc-options__loading" id="calcLoading">carregando opções...</p>
+      </div>
+
+      <div class="calc-summary">
+        <div class="console__panel console__output calc-output" id="calcOutput" aria-live="polite">
+          <p class="console__line console__prompt">&gt; sua_combinacao()</p>
+
+          <div class="calc-total">
+            <span class="calc-total__label">mensalidade estimada</span>
+            <span class="calc-total__value" id="calcMonthly">R$ 0</span>
+            <span class="calc-total__hint">/mês</span>
+          </div>
+
+          <div class="calc-setup">
+            <span>implantação (pagamento único)</span>
+            <strong id="calcSetup">R$ 0</strong>
+          </div>
+
+          <div class="calc-breakdown" id="calcBreakdown"></div>
+
+          <p class="calc-note">Não inclui verba de mídia paga (Meta/Google). Isso é decidido por você e pago direto à plataforma.</p>
+
+          <a href="#" class="btn btn--primary calc-cta" id="calcWhatsapp" target="_blank" rel="noopener">Chamar no WhatsApp com esse orçamento</a>
+          <a href="index.html" class="btn btn--ghost calc-cta">Voltar pro site</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <canvas class="nodegraph-canvas" id="nodegraphFooter" aria-hidden="true"></canvas>
+  <div class="section-inner footer__grid">
+    <div>
+      <p class="footer__logo">EGM</p>
+      <p class="footer__meaning">Evolution, Growth &amp; Modernization</p>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">contato</p>
+      <a href="mailto:contato@egm.dev">contato@egm.dev</a>
+      <a href="https://wa.me/5511942544758" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">navegação</p>
+      <a href="index.html#servicos">o que fazemos</a>
+      <a href="index.html#trabalhos">trabalhos</a>
+      <a href="index.html#clientes">área de clientes</a>
+    </div>
+  </div>
+  <div class="footer__bottom section-inner">
+    <span>© <span id="year"></span> EGM. Todos os sistemas operacionais.</span>
+  </div>
+</footer>
+
+<script src="js/nodegraph.js"></script>
+<script src="js/site-common.js"></script>
+<script src="js/calculadora.js"></script>
+</body>
+</html>
