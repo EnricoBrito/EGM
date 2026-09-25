@@ -63,3 +63,15 @@
   .doc-cta__actions{ width:100%; }
   .doc-cta__actions .btn{ flex:1; justify-content:center; }
 }
+
+/* doc mobile */
+@media (max-width:640px){
+  .doc-hero{ padding:112px 0 44px; }
+  .doc-section{ padding:60px 0; }
+  .doc-stat{ padding:1.4rem 1.25rem; }
+  .doc-stat__value{ font-size:1.8rem; }
+  .doc-process li{ padding:1.15rem 1.1rem; gap:.9rem; }
+  .faq-item summary{ padding:1.1rem 1.1rem; font-size:.95rem; }
+  .faq-item p{ padding:0 1.1rem 1.2rem; }
+  .doc-cta{ padding:60px 0; }
+}

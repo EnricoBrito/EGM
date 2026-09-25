@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orçamento | EGM</title>
+<meta name="description" content="Conte o que a sua empresa precisa (site, sistema, aplicativo, atendimento automático no WhatsApp ou anúncios) e receba uma proposta feita pra você.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/png" href="../assets/logo-icone.png">
+<link rel="apple-touch-icon" href="../assets/logo-icone.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Orçamento | EGM">
+<meta property="og:description" content="Conte o que você precisa e receba uma proposta feita pra você, sem compromisso.">
+<meta property="og:image" content="https://www.egm.tec.br/assets/logo.png">
+<meta property="og:url" content="https://www.egm.tec.br/orcamento/">
+<meta property="og:site_name" content="EGM">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/orcamento.css">
+</head>
+<body data-root="../">
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__logo">EGM</a>
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="../#servicos">o que fazemos</a>
+      <a href="../#processo">como trabalhamos</a>
+      <a href="../#trabalhos">trabalhos</a>
+      <a href="../#sobre">quem somos</a>
+      <a href="../orcamento/" aria-current="page">orçamento</a>
+      <a href="../duvidas/">dúvidas</a>
+      <a href="https://wa.me/5511942544758?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20reuni%C3%A3o%20com%20a%20EGM." target="_blank" rel="noopener" class="nav__cta nav__cta--primary">marcar reunião</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="orc-hero">
+    <div class="section-inner">
+      <p class="eyebrow">Orçamento</p>
+      <h1 class="section-title orc-hero__title">Conta pra gente o que você precisa.</h1>
+      <p class="section-lead">Leva uns 2 minutos. No final, o WhatsApp abre com a mensagem pronta, é só enviar. A gente estuda o seu pedido e responde com uma proposta feita pra você.</p>
+    </div>
+  </section>
+
+  <section class="orc-body">
+    <form class="section-inner orc-grid" id="orcForm" novalidate>
+
+      <div class="orc-steps">
+
+        <fieldset class="orc-step" id="stepServicos">
+          <legend class="orc-step__title"><span class="orc-step__num">1</span> O que você precisa?</legend>
+          <p class="orc-step__hint">Pode marcar mais de um.</p>
+          <div class="orc-options" id="orcOptions">
+            <label class="toggle-card">
+              <input type="checkbox" name="servicos" value="bot" data-label="Bot + IA no WhatsApp">
+              <span class="toggle-card__box">
+                <strong>Bot + IA no WhatsApp</strong>
+                <small>Atendimento automático que responde seus clientes 24 horas.</small>
+              </span>
+            </label>
+            <label class="toggle-card">
+              <input type="checkbox" name="servicos" value="sistema" data-label="Sistema ou aplicativo">
+              <span class="toggle-card__box">
+                <strong>Sistema ou aplicativo</strong>
+                <small>Controle de clientes, vendas, estoque ou agenda, no computador ou no celular.</small>
+              </span>
+            </label>
+            <label class="toggle-card">
+              <input type="checkbox" name="servicos" value="site" data-label="Site">
+              <span class="toggle-card__box">
+                <strong>Site</strong>
+                <small>Site da empresa ou página de vendas, feito do zero.</small>
+              </span>
+            </label>
+            <label class="toggle-card">
+              <input type="checkbox" name="servicos" value="trafego" data-label="Anúncios no Facebook e Instagram">
+              <span class="toggle-card__box">
+                <strong>Anúncios no Facebook e Instagram</strong>
+                <small>Campanhas pra atrair clientes pelas redes sociais.</small>
+              </span>
+            </label>
+            <label class="toggle-card">
+              <input type="checkbox" name="servicos" value="google-ads" data-label="Anúncios no Google">
+              <span class="toggle-card__box">
+                <strong>Anúncios no Google</strong>
+                <small>Apareça pra quem já está procurando o que você vende.</small>
+              </span>
+            </label>
+            <label class="toggle-card">
+              <input type="checkbox" name="servicos" value="relatorios" data-label="Relatórios automáticos">
+              <span class="toggle-card__box">
+                <strong>Relatórios automáticos</strong>
+                <small>Um painel com os seus resultados, que se atualiza sozinho.</small>
+              </span>
+            </label>
+          </div>
+          <label class="toggle-card toggle-card--unsure" id="unsureCard">
+            <input type="checkbox" name="servicos" value="indefinido" data-label="Ainda não sei, quero uma indicação">
+            <span class="toggle-card__box">
+              <strong>Ainda não sei</strong>
+              <small data-default="Conta o que precisa resolver e a gente indica o melhor caminho." data-locked="Desmarque os serviços acima pra escolher esta opção.">Conta o que precisa resolver e a gente indica o melhor caminho.</small>
+            </span>
+          </label>
+        </fieldset>
+
+        <fieldset class="orc-step">
+          <legend class="orc-step__title"><span class="orc-step__num">2</span> Sobre a sua empresa</legend>
+          <div class="orc-fields">
+            <div class="field">
+              <label for="fNome">Seu nome <span class="field__req">(obrigatório)</span></label>
+              <input id="fNome" name="nome" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="fEmpresa">Nome da empresa</label>
+              <input id="fEmpresa" name="empresa" type="text" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="fSegmento">Ramo da empresa</label>
+              <select id="fSegmento" name="segmento">
+                <option value="">Escolha uma opção</option>
+                <option>Loja de carros ou revenda de veículos</option>
+                <option>Loja ou comércio</option>
+                <option>Distribuidora ou atacado</option>
+                <option>Prestação de serviços</option>
+                <option>Saúde e bem-estar</option>
+                <option>Educação</option>
+                <option>Alimentação</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="fPais">País</label>
+              <select id="fPais" name="pais">
+                <option>Brasil</option>
+                <option>Angola</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="field field--full">
+              <label for="fCidade">Cidade e estado</label>
+              <input id="fCidade" name="cidade" type="text" autocomplete="address-level2" placeholder="Ex.: Guarulhos, SP">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="orc-step">
+          <legend class="orc-step__title"><span class="orc-step__num">3</span> Como está hoje</legend>
+          <p class="orc-step__hint">Marque o que a sua empresa já tem.</p>
+          <div class="chips">
+              <label class="chip"><input type="checkbox" name="hoje" value="Já temos site"><span>Já temos site</span></label>
+              <label class="chip"><input type="checkbox" name="hoje" value="Já fazemos anúncios"><span>Já fazemos anúncios</span></label>
+              <label class="chip"><input type="checkbox" name="hoje" value="Atendemos pelo WhatsApp"><span>Atendemos pelo WhatsApp</span></label>
+              <label class="chip"><input type="checkbox" name="hoje" value="Usamos algum sistema"><span>Usamos algum sistema</span></label>
+              <label class="chip"><input type="checkbox" name="hoje" value="Estamos começando do zero"><span>Estamos começando do zero</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="orc-step">
+          <legend class="orc-step__title"><span class="orc-step__num">4</span> Detalhes</legend>
+          <div class="field">
+            <span class="field__label" id="prazoLabel">Pra quando você precisa?</span>
+            <div class="chips" role="radiogroup" aria-labelledby="prazoLabel">
+              <label class="chip"><input type="radio" name="prazo" value="O quanto antes"><span>O quanto antes</span></label>
+              <label class="chip"><input type="radio" name="prazo" value="Nos próximos 30 dias"><span>Nos próximos 30 dias</span></label>
+              <label class="chip"><input type="radio" name="prazo" value="Nos próximos 3 meses"><span>Nos próximos 3 meses</span></label>
+              <label class="chip"><input type="radio" name="prazo" value="Só pesquisando por enquanto"><span>Só pesquisando por enquanto</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="fDescricao">O que você quer resolver?</label>
+            <textarea id="fDescricao" name="descricao" rows="5" placeholder="Ex.: recebo muita mensagem no WhatsApp e não consigo responder todo mundo a tempo."></textarea>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <aside class="orc-summary" aria-label="Resumo do pedido">
+        <div class="orc-card">
+          <h2 class="orc-card__title">Resumo do seu pedido</h2>
+          <dl class="orc-resumo" id="orcResumo"></dl>
+          <p class="orc-msg" id="orcMsg" role="alert"></p>
+          <a href="#" class="orc-cta" id="orcWhatsapp" target="_blank" rel="noopener"><svg class="orc-cta__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2a9.7 9.7 0 0 0-8.4 14.6L2.2 21.8l5.1-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.6a7.9 7.9 0 0 1-4-1.1l-.3-.2-3 .8.8-2.9-.2-.3A7.9 7.9 0 1 1 12 19.8Zm4.4-5.9c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.3Z"/></svg><span>Enviar pelo WhatsApp</span></a>
+          <p class="orc-note">O WhatsApp abre com tudo escrito, organizado e pronto pra enviar. O orçamento é sem compromisso.</p>
+        </div>
+      </aside>
+
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <canvas class="nodegraph-canvas" id="nodegraphFooter" aria-hidden="true"></canvas>
+  <div class="section-inner footer__grid">
+    <div>
+      <p class="footer__logo">EGM</p>
+      <p class="footer__meaning">Evolution, Growth &amp; Modernization</p>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">contato</p>
+      <a href="mailto:egm.dev@gmail.com">egm.dev@gmail.com</a>
+      <a href="https://wa.me/5511942544758" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">navegação</p>
+      <a href="../#servicos">o que fazemos</a>
+      <a href="../#processo">como trabalhamos</a>
+      <a href="../#trabalhos">trabalhos</a>
+      <a href="../#sobre">quem somos</a>
+      <a href="../orcamento/">orçamento</a>
+      <a href="../duvidas/">dúvidas</a>
+    </div>
+  </div>
+  <div class="footer__bottom section-inner">
+    <span>© <span id="year"></span> EGM. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<script src="../js/nodegraph.js"></script>
+<script src="../js/site-common.js"></script>
+<script src="../js/orcamento.js"></script>
+</body>
+</html>

@@ -1,32 +1,32 @@
 [
   {
     "step": "01",
-    "title": "Briefing",
-    "text": "A gente entende o negócio, o processo atual e onde estão os gargalos antes de falar em solução."
+    "title": "Primeira conversa",
+    "text": "A gente entende como a sua empresa funciona hoje e o que está travando."
   },
   {
     "step": "02",
     "title": "Proposta",
-    "text": "Escopo, prazo e investimento definidos com clareza. Sem letra miúda, sem escopo aberto."
+    "text": "Você recebe por escrito o que vai ser feito, o prazo e o investimento. Sem letra miúda."
   },
   {
     "step": "03",
-    "title": "Arquitetura",
-    "text": "Desenhamos o fluxo de dados e a automação inteira antes de escrever a primeira linha de código."
+    "title": "Planejamento",
+    "text": "Desenhamos tudo antes de começar, pra não ter surpresa no meio do caminho."
   },
   {
     "step": "04",
-    "title": "Desenvolvimento",
-    "text": "Construção em ciclos curtos, com entregas visíveis toda semana. Você acompanha, não só espera."
+    "title": "Criação",
+    "text": "Trabalhamos em etapas curtas. Toda semana você vê o que já está pronto."
   },
   {
     "step": "05",
-    "title": "Testes & ajustes",
-    "text": "Validamos com o time real, no cenário real, antes de qualquer coisa ir ao ar de vez."
+    "title": "Testes",
+    "text": "Testamos com a sua equipe, no dia a dia de verdade, antes de liberar."
   },
   {
     "step": "06",
-    "title": "Entrega & suporte",
-    "text": "Sistema no ar, time treinado, e canal aberto pra abrir chamado sempre que precisar."
+    "title": "Entrega e suporte",
+    "text": "Tudo funcionando, equipe treinada e a gente por perto sempre que precisar."
   }
 ]

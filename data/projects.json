@@ -3,59 +3,107 @@
     "id": "smart-auto",
     "nome": "Smart Auto Veículos",
     "categoria": "Concessionária de veículos",
-    "services": ["bot", "trafego", "sistema"],
-    "summary": "Bot de atendimento no WhatsApp, tráfego pago pra gerar interesse e um sistema interno pra organizar tudo, do lead até a venda fechada.",
-    "detail": "A Smart Auto recebe lead qualificado pelo bot no WhatsApp, que consulta o estoque disponível e já manda foto do carro. O tráfego pago alimenta esse funil com gente realmente interessada, e o sistema interno organiza cada etapa da negociação pra ninguém ficar esperando resposta.",
-    "metric": "Do anúncio à negociação, sem perder lead no meio do caminho",
+    "services": [
+      "bot",
+      "trafego",
+      "sistema"
+    ],
+    "summary": "Atendimento automático no WhatsApp, anúncios que atraem compradores e um sistema que organiza tudo, do primeiro contato até a venda.",
+    "detail": "Quem chama a Smart Auto no WhatsApp é atendido na hora pelo bot, que responde sobre o carro de interesse e manda foto. Os anúncios trazem gente realmente interessada em comprar, e o sistema organiza cada negociação pra ninguém ficar sem resposta.",
+    "metric": "Do anúncio à negociação, sem perder cliente no caminho",
+    "entregas": [
+      {
+        "servico": "bot",
+        "texto": "Atende no WhatsApp a qualquer hora, entende qual carro a pessoa procura, responde e manda foto. O vendedor entra quando o cliente já está pronto pra negociar."
+      },
+      {
+        "servico": "trafego",
+        "texto": "Anúncios no Facebook e no Instagram que trazem gente realmente interessada em comprar, e não só curiosos."
+      },
+      {
+        "servico": "sistema",
+        "texto": "Painel que organiza cada negociação, do primeiro contato à venda, pra ninguém ficar sem resposta."
+      }
+    ],
+    "imagens": "smart",
     "gallery": [
-      "Conversa do bot qualificando um lead",
-      "Consulta de estoque em tempo real",
-      "Painel interno de negociação",
-      "Campanha ativa no Meta Ads"
-    ]
+      "Bot atendendo um cliente no WhatsApp",
+      "Dashboard App",
+      "Anúncio no Facebook"
+    ],
+    "app": {
+      "titulo": "O sistema também no celular.",
+      "descricao": "Parte do sistema da Smart Auto funciona num aplicativo que a EGM criou pra lojas de carros. O vendedor consulta e atualiza tudo pelo celular, direto do pátio.",
+      "imagem": "assets/smart-app.png",
+      "imagemWebp": "assets/smart-app.webp",
+      "imagemWebpSm": "assets/smart-app-sm.webp",
+      "alt": "Tela inicial do aplicativo EGM para concessionárias, com resumo do estoque, leads ativos, propostas em andamento, atalhos para cadastrar veículo e WhatsApp, veículos em destaque e últimos leads.",
+      "recursos": [
+        {
+          "id": "resumo",
+          "titulo": "Resumo do dia",
+          "texto": "Carros no estoque, clientes interessados e propostas abertas, logo ao abrir.",
+          "foco": [
+            388,
+            480
+          ]
+        },
+        {
+          "id": "atalhos",
+          "titulo": "Tudo a um toque",
+          "texto": "Cadastrar carro, anotar cliente, montar proposta ou abrir o WhatsApp.",
+          "foco": [
+            388,
+            757
+          ]
+        },
+        {
+          "id": "estoque",
+          "titulo": "Estoque com foto",
+          "texto": "Os carros do pátio com foto, ano, combustível e câmbio.",
+          "foco": [
+            388,
+            1010
+          ]
+        },
+        {
+          "id": "clientes",
+          "titulo": "Clientes em dia",
+          "texto": "Quem se interessou por qual carro e em que pé está a conversa.",
+          "foco": [
+            388,
+            1306
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "plus-camas",
     "nome": "Plus Camas e Colchões",
     "categoria": "Distribuidora de colchões",
-    "services": ["trafego", "bot"],
-    "summary": "Tráfego pago atraindo interessados e um bot vendedor consultivo que qualifica, recomenda o modelo certo e fecha pedido direto no WhatsApp.",
-    "detail": "As campanhas trazem gente pra dentro da conversa, e o bot assume dali: entende se é pra casal ou solteiro, nível de firmeza, orçamento, recomenda o colchão certo do catálogo e fecha o pedido validando até o endereço de entrega.",
-    "metric": "Atendimento consultivo 100% automático, do anúncio ao pedido fechado",
+    "services": [
+      "trafego",
+      "bot"
+    ],
+    "summary": "Anúncios que atraem interessados e um bot que atende como um vendedor: tira dúvidas, indica o colchão certo e fecha o pedido no WhatsApp.",
+    "detail": "Os anúncios trazem as pessoas pra conversa, e o bot assume dali: pergunta se é pra casal ou solteiro, o quanto a pessoa gosta do colchão firme e o que ela procura, indica o modelo certo e fecha o pedido já conferindo o endereço de entrega.",
+    "metric": "Atendimento 100% automático, do anúncio ao pedido fechado",
+    "entregas": [
+      {
+        "servico": "trafego",
+        "texto": "Anúncios no Instagram e no Facebook que levam os interessados direto pra conversa no WhatsApp."
+      },
+      {
+        "servico": "bot",
+        "texto": "Atende como um bom vendedor: faz as perguntas certas, indica o colchão ideal e fecha o pedido conferindo o endereço de entrega."
+      }
+    ],
+    "imagens": "plus",
     "gallery": [
-      "Bot recomendando o colchão certo",
-      "Fechamento de pedido pelo WhatsApp",
-      "Campanha ativa no Instagram"
-    ]
-  },
-  {
-    "id": "autoescola-virtual",
-    "nome": "Autoescola Virtual",
-    "categoria": "Autoescola em São Miguel Paulista, SP",
-    "services": ["site", "sistema", "trafego"],
-    "summary": "Site institucional, sistema completo de gestão da autoescola e tráfego pago pra atrair novos alunos na região.",
-    "detail": "Site pra apresentar a autoescola e captar interesse, sistema interno cuidando de matrícula, professores, veículos e agenda de aulas, e tráfego pago levando gente da região direto pro funil de matrícula.",
-    "metric": "Da campanha à matrícula, tudo dentro de um único fluxo",
-    "gallery": [
-      "Site institucional",
-      "Agenda de aulas no sistema",
-      "Cadastro de alunos e professores",
-      "Anúncio no Facebook"
-    ]
-  },
-  {
-    "id": "chaveiro-spedy",
-    "nome": "Chaveiro Spedy",
-    "categoria": "Chaveiro 24h",
-    "services": ["google-ads", "bot", "site", "relatorios"],
-    "summary": "Google Ads pra aparecer na hora da emergência, bot de atendimento no WhatsApp, site institucional e relatórios de desempenho.",
-    "detail": "Quem precisa de chaveiro procura na hora do aperto. O Google Ads garante que a Spedy apareça primeiro. O bot no WhatsApp já atende a urgência, o site passa confiança pra quem pesquisa antes de chamar, e os relatórios mostram exatamente de onde vem cada cliente.",
-    "metric": "Do clique no anúncio ao atendimento, em poucos minutos",
-    "gallery": [
-      "Anúncio no topo do Google",
-      "Bot atendendo uma emergência",
-      "Site institucional",
-      "Relatório de resultado mensal"
+      "IA convertendo venda",
+      "Enviando imagens",
+      "Anúncio no Instagram"
     ]
   }
 ]

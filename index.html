@@ -4,12 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EGM | Evolution, Growth & Modernization</title>
-<meta name="description" content="EGM constrói sites, sistemas, bots com IA e tráfego pago sob medida, do briefing ao suporte.">
-<link rel="icon" type="image/png" href="assets/icon.png">
+<meta name="description" content="A EGM cria sites, sistemas, aplicativos, atendimento automático no WhatsApp e anúncios na internet, tudo feito sob medida pra sua empresa.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/png" href="assets/logo-icone.png">
+<link rel="apple-touch-icon" href="assets/logo-icone.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="EGM | Evolution, Growth & Modernization">
 <meta property="og:description" content="Sites, sistemas, bots com IA no WhatsApp e tráfego pago, sob medida.">
-<meta property="og:image" content="assets/logo.png">
+<meta property="og:image" content="https://www.egm.tec.br/assets/logo.png">
+<meta property="og:url" content="https://www.egm.tec.br/">
+<meta property="og:site_name" content="EGM">
+<meta property="og:locale" content="pt_BR">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -17,8 +22,14 @@
   "name": "EGM",
   "alternateName": "Evolution, Growth & Modernization",
   "description": "Sites, sistemas, bots com IA no WhatsApp e tráfego pago, sob medida.",
-  "email": "contato@egm.dev",
-  "url": "https://www.egm.dev/"
+  "email": "egm.dev@gmail.com",
+  "url": "https://www.egm.tec.br/",
+  "logo": "https://www.egm.tec.br/assets/logo.png",
+  "founder": [
+    { "@type": "Person", "name": "Enrico de Almeida", "jobTitle": "Bots e automações com IA" },
+    { "@type": "Person", "name": "Mateus Rodrigues", "jobTitle": "Sistemas e sites" },
+    { "@type": "Person", "name": "Gustavo Carneiro", "jobTitle": "Marketing e anúncios" }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +37,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-root="">
 
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -36,14 +47,13 @@
   <div class="nav__inner">
     <a href="#top" class="nav__logo">EGM</a>
     <nav class="nav__links" aria-label="Navegação principal">
-      <a href="#sobre">quem somos</a>
       <a href="#servicos">o que fazemos</a>
       <a href="#processo">como trabalhamos</a>
       <a href="#trabalhos">trabalhos</a>
-      <a href="calculadora.html">calculadora</a>
-      <a href="documentacao.html">documentação</a>
+      <a href="#sobre">quem somos</a>
+      <a href="orcamento/">orçamento</a>
+      <a href="duvidas/">dúvidas</a>
       <a href="https://wa.me/5511942544758?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20reuni%C3%A3o%20com%20a%20EGM." target="_blank" rel="noopener" class="nav__cta nav__cta--primary">marcar reunião</a>
-      <a href="#clientes" class="nav__cta">área de clientes</a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -53,44 +63,26 @@
 
 <main id="main">
 
-  <!-- HERO -->
+  <!-- INÍCIO -->
   <section class="hero" id="top">
     <canvas class="nodegraph-canvas" id="nodegraphHero" aria-hidden="true"></canvas>
-    <div class="hero__grid-label" aria-hidden="true">
-      <span>LAT -23.5505</span><span>LON -46.6333</span><span>BR</span>
-    </div>
     <div class="hero__inner">
-      <p class="eyebrow hero__eyebrow">EGM // EVOLUTION. GROWTH. MODERNIZATION.</p>
-      <h1 class="hero__title">
-        A gente constrói o<br>software que roda<br>o seu negócio.
-      </h1>
-      <p class="hero__sub">Sites, sistemas, bots com IA no WhatsApp e tráfego pago, tudo sob medida, sem depender de builder genérico nem de mil ferramentas soltas.</p>
-      <div class="hero__actions">
-        <a href="#trabalhos" class="btn btn--primary">Ver trabalhos</a>
-        <a href="https://wa.me/5511942544758" target="_blank" rel="noopener" class="btn btn--ghost">Chamar no WhatsApp</a>
-        <a href="#clientes" class="btn btn--ghost">Sou cliente</a>
+      <div class="hero__content" id="heroContent">
+        <h1 class="hero__title">A gente cria a tecnologia que faz a sua empresa crescer.</h1>
+        <p class="hero__sub">Sites, sistemas, atendimento automático no WhatsApp e anúncios na internet. Tudo feito sob medida, do jeito que a sua empresa funciona.</p>
+        <div class="hero__actions">
+          <a href="#trabalhos" class="btn btn--primary">Ver trabalhos</a>
+          <a href="https://wa.me/5511942544758" target="_blank" rel="noopener" class="btn btn--ghost">Chamar no WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SOBRE -->
-  <section class="manifesto" id="sobre">
-    <div class="section-inner manifesto__single">
-      <p class="eyebrow">/// quem somos</p>
-      <p class="manifesto__statement">
-        <strong>EGM</strong> significa <em>Evolution, Growth &amp; Modernization</em>. Não é só um nome, é o que cada entrega precisa fazer pelo seu negócio.
-      </p>
-      <p class="manifesto__body">
-        Trabalhamos com site, sistema, bot com IA no WhatsApp e tráfego pago pra empresas que precisam de tecnologia que funciona de verdade, sem enrolação, sem contrato eterno de manutenção, sem depender de mil ferramentas paralelas. Tudo personalizado pro seu negócio, do zero.
-      </p>
-    </div>
-  </section>
-
-  <!-- SERVIÇOS -->
+  <!-- O QUE FAZEMOS -->
   <section class="services section-tint" id="servicos">
     <div class="section-inner">
-      <p class="eyebrow">/// o que fazemos</p>
-      <h2 class="section-title">Quatro frentes, todas sob medida.</h2>
+      <p class="eyebrow">O que fazemos</p>
+      <h2 class="section-title">Quatro serviços, todos feitos sob medida.</h2>
       <div class="services__grid">
 
         <article class="service-card">
@@ -98,13 +90,13 @@
             <svg viewBox="0 0 48 48"><path d="M6 34 L16 22 L24 28 L42 8" fill="none"/><path d="M32 8 H42 V18" fill="none"/></svg>
           </div>
           <h3>Tráfego Pago</h3>
-          <p class="service-card__tag">Facebook, Instagram e Google Ads, gerenciados de verdade</p>
+          <p class="service-card__tag">Anúncios no Facebook, Instagram e Google</p>
           <ul>
-            <li>Campanha configurada e otimizada pro seu tipo de negócio</li>
-            <li>Segmentação, criativos e orçamento acompanhados de perto</li>
-            <li>Relatório claro de quanto voltou pra cada real investido</li>
+            <li>Anúncios feitos pro seu tipo de cliente</li>
+            <li>Acompanhamento de perto, toda semana</li>
+            <li>Relatório simples: quanto entrou pra cada real investido</li>
           </ul>
-          <button type="button" class="service-card__more" data-service="trafego">conheça mais →</button>
+          <button type="button" class="service-card__more" data-service="trafego">saiba mais</button>
         </article>
 
         <article class="service-card">
@@ -112,13 +104,13 @@
             <svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="26" rx="2"/><line x1="6" y1="17" x2="42" y2="17"/><circle cx="11" cy="13.5" r="1.2"/><circle cx="15" cy="13.5" r="1.2"/></svg>
           </div>
           <h3>Site</h3>
-          <p class="service-card__tag">presença digital que representa o que vocês fazem</p>
+          <p class="service-card__tag">Sua empresa bem apresentada na internet</p>
           <ul>
-            <li>Institucional, landing page ou configurador de produto</li>
-            <li>Performance e design tratados com o mesmo peso</li>
-            <li>Sem dependência de builders genéricos</li>
+            <li>Site da empresa ou página de vendas</li>
+            <li>Rápido, bonito e fácil de usar no celular</li>
+            <li>Feito do zero, sem modelo pronto</li>
           </ul>
-          <button type="button" class="service-card__more" data-service="site">conheça mais →</button>
+          <button type="button" class="service-card__more" data-service="site">saiba mais</button>
         </article>
 
         <article class="service-card">
@@ -126,13 +118,13 @@
             <svg viewBox="0 0 48 48"><rect x="8" y="8" width="32" height="8" rx="1"/><rect x="8" y="20" width="32" height="8" rx="1"/><rect x="8" y="32" width="32" height="8" rx="1"/></svg>
           </div>
           <h3>Sistema</h3>
-          <p class="service-card__tag">painéis e plataformas feitas sob medida</p>
+          <p class="service-card__tag">Programas e aplicativos pra sua rotina</p>
           <ul>
-            <li>ERP, CRM e dashboards administrativos</li>
-            <li>Banco de dados seguro, com controle de acesso por perfil</li>
-            <li>Feito pro seu processo, não o contrário</li>
+            <li>Controle de clientes, vendas, estoque e agenda</li>
+            <li>No computador ou num aplicativo de celular</li>
+            <li>Cada pessoa da equipe vê só o que precisa</li>
           </ul>
-          <button type="button" class="service-card__more" data-service="sistema">conheça mais →</button>
+          <button type="button" class="service-card__more" data-service="sistema">saiba mais</button>
         </article>
 
         <article class="service-card">
@@ -140,99 +132,104 @@
             <svg viewBox="0 0 48 48"><circle cx="10" cy="12" r="3"/><circle cx="38" cy="10" r="3"/><circle cx="24" cy="34" r="3"/><circle cx="40" cy="36" r="3"/><path d="M10 12 L24 34 M38 10 L24 34 M24 34 L40 36" /></svg>
           </div>
           <h3>Bot + IA</h3>
-          <p class="service-card__tag">atendimento e vendas no WhatsApp, no automático</p>
+          <p class="service-card__tag">Atendimento automático no WhatsApp</p>
           <ul>
-            <li>Bot com IA que entende contexto, não só palavra-chave</li>
-            <li>Integração com catálogo, estoque e pagamento</li>
-            <li>Funciona 24h, sem perder o tom da sua marca</li>
+            <li>Responde seus clientes 24 horas por dia</li>
+            <li>Entende o que a pessoa quer e indica o produto certo</li>
+            <li>Chama um atendente quando precisa</li>
           </ul>
-          <button type="button" class="service-card__more" data-service="bot">conheça mais →</button>
+          <button type="button" class="service-card__more" data-service="bot">saiba mais</button>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- PROCESSO / TIMELINE -->
+  <!-- COMO TRABALHAMOS -->
   <section class="process" id="processo">
     <div class="section-inner">
-      <p class="eyebrow">/// como trabalhamos</p>
-      <h2 class="section-title">Do briefing à entrega, em seis passos.</h2>
+      <p class="eyebrow">Como trabalhamos</p>
+      <h2 class="section-title">Da primeira conversa à entrega, em seis passos.</h2>
       <div class="timeline" id="timeline">
         <div class="timeline__rail" aria-hidden="true"><div class="timeline__rail-fill" id="timelineFill"></div></div>
-        <!-- timeline steps injected here via JS from data/timeline.json -->
+        <!-- passos carregados de data/timeline.json -->
       </div>
     </div>
   </section>
 
-  <!-- TRABALHOS / PORTFOLIO -->
+  <!-- TRABALHOS -->
   <section class="portfolio section-tint" id="trabalhos">
     <div class="section-inner">
-      <p class="eyebrow">/// trabalhos</p>
-      <h2 class="section-title">Sistemas que já estão de pé.</h2>
-      <div class="portfolio__filters" id="portfolioFilters" role="tablist" aria-label="Filtrar trabalhos por categoria">
-        <button class="filter-btn is-active" data-filter="all" role="tab" aria-selected="true">todos</button>
-        <button class="filter-btn" data-filter="bot" role="tab" aria-selected="false">bot + ia</button>
-        <button class="filter-btn" data-filter="trafego" role="tab" aria-selected="false">tráfego pago</button>
-        <button class="filter-btn" data-filter="sistema" role="tab" aria-selected="false">sistema</button>
-        <button class="filter-btn" data-filter="site" role="tab" aria-selected="false">site</button>
-      </div>
+      <p class="eyebrow">Trabalhos</p>
+      <h2 class="section-title">Projetos que já estão funcionando.</h2>
       <div class="portfolio__grid" id="portfolioGrid">
-        <!-- project cards injected here via JS from data/projects.json -->
+        <!-- cards carregados de data/projects.json -->
       </div>
     </div>
   </section>
 
-  <!-- CTA CALCULADORA -->
+  <!-- QUEM SOMOS -->
+  <section class="about" id="sobre">
+    <div class="section-inner">
+
+      <div class="about__intro">
+        <p class="eyebrow">Quem somos</p>
+        <h2 class="section-title">Três pessoas, cada uma cuidando de uma parte do seu projeto.</h2>
+        <p class="about__lead"><strong>EGM</strong> vem de <em>Evolution, Growth &amp; Modernization</em>: evolução, crescimento e modernização. Aqui você fala direto com quem está fazendo, sem intermediário.</p>
+      </div>
+
+      <div class="team" role="list" aria-label="Equipe EGM">
+
+        <article class="member" role="listitem">
+          <div class="member__photo" data-initials="EA">
+            <img src="assets/enrico.png" alt="Foto de Enrico de Almeida" width="800" height="1000" loading="lazy" decoding="async">
+          </div>
+          <h3 class="member__name">Enrico de Almeida</h3>
+          <p class="member__role">Bots e automações com IA</p>
+          <p class="member__bio">Cria os bots de WhatsApp e as automações que trabalham sozinhas por você.</p>
+          <div class="member__fronts"><a href="#servicos" class="member__front">Bot + IA</a></div>
+        </article>
+
+        <article class="member" role="listitem">
+          <div class="member__photo" data-initials="MR">
+            <img src="assets/mateus.png" alt="Foto de Mateus Rodrigues" width="800" height="1000" loading="lazy" decoding="async">
+          </div>
+          <h3 class="member__name">Mateus Rodrigues</h3>
+          <p class="member__role">Sistemas e sites</p>
+          <p class="member__bio">Entende como a sua empresa funciona e cria o sistema e o site em cima disso.</p>
+          <div class="member__fronts"><a href="#servicos" class="member__front">Sistema</a><a href="#servicos" class="member__front">Site</a></div>
+        </article>
+
+        <article class="member" role="listitem">
+          <div class="member__photo" data-initials="GC">
+            <img src="assets/gustavo.png" alt="Foto de Gustavo Carneiro" width="800" height="1000" loading="lazy" decoding="async">
+          </div>
+          <h3 class="member__name">Gustavo Carneiro</h3>
+          <p class="member__role">Marketing e anúncios</p>
+          <p class="member__bio">Cuida dos anúncios no Google e nas redes que trazem clientes até você.</p>
+          <div class="member__fronts"><a href="#servicos" class="member__front">Tráfego Pago</a></div>
+        </article>
+
+      </div>
+
+      <p class="team__together">
+        Na Smart Auto, os três trabalharam juntos: o anúncio traz o cliente, o bot atende no WhatsApp e o sistema organiza a venda.
+        <a href="trabalhos/smart-auto/" class="team__together-link">Ver esse trabalho</a>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ORÇAMENTO -->
   <section class="calc-promo">
     <canvas class="nodegraph-canvas" id="nodegraphCalcPromo" aria-hidden="true"></canvas>
     <div class="section-inner calc-promo__inner">
       <div>
-        <p class="eyebrow">/// investimento</p>
-        <h2 class="section-title calc-promo__title">Quanto isso custaria pro seu negócio?</h2>
-        <p class="section-lead calc-promo__lead">Monte sua combinação de site, sistema, bot e tráfego pago e veja a mensalidade estimada na hora, sem compromisso.</p>
+        <p class="eyebrow">Orçamento</p>
+        <h2 class="section-title calc-promo__title">Vamos montar o seu projeto?</h2>
+        <p class="section-lead calc-promo__lead">Marque o que você precisa, conte um pouco da sua empresa e a gente responde pelo WhatsApp com uma proposta feita pra você. Sem compromisso.</p>
       </div>
-      <a href="calculadora.html" class="btn btn--primary calc-promo__btn">Simular investimento →</a>
-    </div>
-  </section>
-
-  <!-- ÁREA DE CLIENTES -->
-  <section class="client-area" id="clientes">
-    <div class="section-inner client-area__grid">
-      <div>
-        <p class="eyebrow">/// área restrita</p>
-        <h2 class="section-title">Um portal pra cada lado da operação.</h2>
-        <p class="section-lead">Cliente acompanha o próprio sistema, vê o status do bot, o histórico de mensagens e abre chamado. Time EGM acompanha todos os clientes, pagamento, chamados pendentes e consulta tudo direto por uma tela de SQL.</p>
-        <svg class="client-area__art" viewBox="0 0 300 200" aria-hidden="true">
-          <rect x="10" y="10" width="180" height="120" rx="4" fill="none"/>
-          <line x1="10" y1="28" x2="190" y2="28"/>
-          <circle cx="20" cy="19" r="2"/><circle cx="28" cy="19" r="2"/>
-          <rect x="24" y="44" width="60" height="70" rx="2" fill="none"/>
-          <rect x="94" y="44" width="80" height="30" rx="2" fill="none"/>
-          <rect x="94" y="82" width="80" height="32" rx="2" fill="none"/>
-          <rect x="70" y="60" width="150" height="110" rx="4" fill="none" opacity="0.5"/>
-          <line x1="70" y1="78" x2="220" y2="78" opacity="0.5"/>
-          <circle cx="80" cy="69" r="2" opacity="0.5"/><circle cx="88" cy="69" r="2" opacity="0.5"/>
-          <rect x="84" y="94" width="120" height="10" rx="2" opacity="0.5" fill="none"/>
-          <rect x="84" y="112" width="90" height="10" rx="2" opacity="0.5" fill="none"/>
-          <rect x="84" y="130" width="120" height="10" rx="2" opacity="0.5" fill="none"/>
-        </svg>
-      </div>
-
-      <div class="portal-teaser">
-        <a class="portal-card" href="portal/login.html?role=cliente">
-          <span class="portal-card__tag">acesso cliente</span>
-          <h3>Meu painel</h3>
-          <p>Status do seu bot ou sistema, prompt em uso, mensagens do período e abertura de chamado, por WhatsApp ou e-mail.</p>
-          <span class="portal-card__cta">Entrar →</span>
-        </a>
-        <a class="portal-card portal-card--dark" href="portal/login.html?role=ti">
-          <span class="portal-card__tag">acesso equipe egm</span>
-          <h3>Painel TI</h3>
-          <p>Clientes ativos, pagamento em dia ou atrasado, chamados abertos, relatório de mensagens e uma tela de SQL pra consultar tudo.</p>
-          <span class="portal-card__cta">Entrar →</span>
-        </a>
-      </div>
+      <a href="orcamento/" class="btn btn--primary calc-promo__btn">Pedir orçamento</a>
     </div>
   </section>
 
@@ -247,43 +244,41 @@
     </div>
     <div class="footer__col">
       <p class="footer__label">contato</p>
-      <a href="mailto:contato@egm.dev">contato@egm.dev</a>
+      <a href="mailto:egm.dev@gmail.com">egm.dev@gmail.com</a>
       <a href="https://wa.me/5511942544758" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <div class="footer__col">
       <p class="footer__label">navegação</p>
       <a href="#servicos">o que fazemos</a>
+      <a href="#processo">como trabalhamos</a>
       <a href="#trabalhos">trabalhos</a>
-      <a href="calculadora.html">calculadora</a>
-      <a href="#clientes">área de clientes</a>
+      <a href="#sobre">quem somos</a>
+      <a href="orcamento/">orçamento</a>
+      <a href="duvidas/">dúvidas</a>
     </div>
   </div>
   <div class="footer__bottom section-inner">
-    <span>© <span id="year"></span> EGM. Todos os sistemas operacionais.</span>
+    <span>© <span id="year"></span> EGM. Todos os direitos reservados.</span>
   </div>
 </footer>
 
 <div class="modal" id="infoModal" aria-hidden="true">
   <div class="modal__backdrop" data-close></div>
   <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="terminal-box__head">
-      <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
-      <span class="terminal-box__title" id="modalWindowTitle">log_output</span>
-      <button class="modal__close" data-close aria-label="Fechar">×</button>
-    </div>
+    <button class="modal__close" data-close aria-label="Fechar">×</button>
     <div class="modal__body">
-      <p class="console__line console__prompt" id="modalCategory">&gt;</p>
       <h3 id="modalTitle"></h3>
       <p id="modalClient" class="modal__client"></p>
-      <p id="modalDetail"></p>
-      <div class="modal__stack" id="modalStack"></div>
-      <p class="modal__metric" id="modalMetric"></p>
+      <p id="modalDetail" class="modal__detail"></p>
+      <p class="modal__label">O que está incluso</p>
+      <ul class="modal__stack" id="modalStack"></ul>
+      <a href="orcamento/" class="btn btn--primary modal__cta" id="modalCta">Pedir orçamento</a>
     </div>
   </div>
 </div>
 
-<a href="calculadora.html" class="float-cta" id="floatCta">
-  <span class="float-cta__icon" aria-hidden="true">＋</span> Calcular investimento
+<a href="orcamento/" class="float-cta" id="floatCta">
+  <span class="float-cta__icon" aria-hidden="true">＋</span> Pedir orçamento
 </a>
 
 <script src="js/nodegraph.js"></script>

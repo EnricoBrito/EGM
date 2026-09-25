@@ -5,28 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Página não encontrada | EGM</title>
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/png" href="assets/icon.png">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/png" href="/assets/logo-icone.png">
+<link rel="apple-touch-icon" href="/assets/logo-icone.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/trabalho.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/trabalho.css">
 </head>
-<body>
+<body data-root="/">
 
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="nav__logo">EGM</a>
+    <a href="/" class="nav__logo">EGM</a>
     <nav class="nav__links" aria-label="Navegação principal">
-      <a href="index.html#sobre">quem somos</a>
-      <a href="index.html#servicos">o que fazemos</a>
-      <a href="index.html#trabalhos">trabalhos</a>
-      <a href="calculadora.html">calculadora</a>
-      <a href="documentacao.html">documentação</a>
+      <a href="/#servicos">o que fazemos</a>
+      <a href="/#processo">como trabalhamos</a>
+      <a href="/#trabalhos">trabalhos</a>
+      <a href="/#sobre">quem somos</a>
+      <a href="/orcamento/">orçamento</a>
+      <a href="/duvidas/">dúvidas</a>
       <a href="https://wa.me/5511942544758?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20reuni%C3%A3o%20com%20a%20EGM." target="_blank" rel="noopener" class="nav__cta nav__cta--primary">marcar reunião</a>
-      <a href="index.html#clientes" class="nav__cta">área de clientes</a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -37,13 +39,13 @@
 <main id="main">
   <section class="trabalho-hero">
     <div class="section-inner">
-      <p class="eyebrow">/// 404</p>
+      <p class="eyebrow">Erro 404</p>
       <h1 class="section-title">Essa página não existe.</h1>
-      <p class="section-lead">O link pode estar errado, desatualizado, ou a página mudou de endereço. Escolhe pra onde ir:</p>
+      <p class="section-lead">O link pode estar errado ou a página mudou de lugar. Escolha pra onde ir:</p>
       <div class="hero__actions" style="margin-top:2rem;">
-        <a href="index.html" class="btn btn--primary">Voltar pro início</a>
-        <a href="index.html#trabalhos" class="btn btn--ghost">Ver trabalhos</a>
-        <a href="calculadora.html" class="btn btn--ghost">Ver calculadora</a>
+        <a href="/" class="btn btn--primary">Voltar pro início</a>
+        <a href="/#trabalhos" class="btn btn--ghost">Ver trabalhos</a>
+        <a href="/orcamento/" class="btn btn--ghost">Pedir orçamento</a>
       </div>
     </div>
   </section>
@@ -58,22 +60,25 @@
     </div>
     <div class="footer__col">
       <p class="footer__label">contato</p>
-      <a href="mailto:contato@egm.dev">contato@egm.dev</a>
+      <a href="mailto:egm.dev@gmail.com">egm.dev@gmail.com</a>
       <a href="https://wa.me/5511942544758" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <div class="footer__col">
       <p class="footer__label">navegação</p>
-      <a href="index.html#servicos">o que fazemos</a>
-      <a href="index.html#trabalhos">trabalhos</a>
-      <a href="index.html#clientes">área de clientes</a>
+      <a href="/#servicos">o que fazemos</a>
+      <a href="/#processo">como trabalhamos</a>
+      <a href="/#trabalhos">trabalhos</a>
+      <a href="/#sobre">quem somos</a>
+      <a href="/orcamento/">orçamento</a>
+      <a href="/duvidas/">dúvidas</a>
     </div>
   </div>
   <div class="footer__bottom section-inner">
-    <span>© <span id="year"></span> EGM. Todos os sistemas operacionais.</span>
+    <span>© <span id="year"></span> EGM. Todos os direitos reservados.</span>
   </div>
 </footer>
 
-<script src="js/nodegraph.js"></script>
-<script src="js/site-common.js"></script>
+<script src="/js/nodegraph.js"></script>
+<script src="/js/site-common.js"></script>
 </body>
 </html>

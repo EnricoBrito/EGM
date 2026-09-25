@@ -1,0 +1,154 @@
+/* ============================================================
+   EGM — página de orçamento (usa os tokens de css/style.css)
+   Sem valores: o formulário coleta o pedido e manda pro WhatsApp.
+   ============================================================ */
+.orc-hero{ padding:140px 0 44px; border-bottom:1px solid var(--line); }
+.orc-hero__title{ max-width:22ch; }
+.orc-hero .section-lead{ margin-bottom:0; }
+
+.orc-body{ padding:64px 0 120px; }
+.orc-grid{ display:grid; grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr); gap:3rem; align-items:start; }
+
+/* ---------- passos ---------- */
+.orc-steps{ display:flex; flex-direction:column; gap:3rem; }
+.orc-step{ border:none; margin:0; padding:0; min-width:0; display:flex; flex-direction:column; gap:1.1rem; }
+.orc-step__title{
+  display:flex; align-items:center; gap:.75rem; padding:0; margin-bottom:.2rem;
+  font-family:var(--font-display); font-weight:600; font-size:1.3rem; letter-spacing:-0.01em;
+}
+.orc-step__num{
+  display:inline-flex; align-items:center; justify-content:center; width:1.9rem; height:1.9rem; flex-shrink:0;
+  font-family:var(--font-mono); font-size:.8rem; font-weight:600; border:1px solid var(--ink); border-radius:50%;
+}
+.orc-step__hint{ font-size:.88rem; color:var(--gray-600); margin-top:.45rem; margin-bottom:-.3rem; }
+/* o legend não participa do flex do fieldset: dá o respiro manualmente */
+.orc-step legend + .orc-fields, .orc-step legend + .field, .orc-step legend + .chips{ margin-top:1rem; }
+.orc-step.is-invalid .orc-options{ border-color:var(--danger); box-shadow:0 0 0 1px var(--danger); }
+
+/* ---------- cards de serviço ---------- */
+.orc-options{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line);
+}
+.toggle-card{ display:block; cursor:pointer; position:relative; }
+.toggle-card--unsure{ margin-top:-.1rem; }
+.toggle-card--unsure::before{
+  content:'ou'; display:flex; align-items:center; gap:.75rem; margin-bottom:.9rem;
+  font-family:var(--font-mono); font-size:.75rem; color:var(--gray-600);
+}
+.toggle-card--unsure .toggle-card__box{ border:1px dashed var(--gray-400); }
+.toggle-card.is-locked{ cursor:not-allowed; }
+.toggle-card.is-locked .toggle-card__box{ opacity:.42; }
+.toggle-card.is-locked:hover .toggle-card__box{ background:var(--paper); }
+.toggle-card--unsure.is-locked .toggle-card__box{ opacity:.6; }
+.toggle-card--unsure.is-locked small{ color:var(--ink-soft); font-style:italic; }
+.toggle-card input{ position:absolute; opacity:0; width:1px; height:1px; }
+.toggle-card__box{
+  display:block; height:100%; background:var(--paper); padding:1.35rem 1.4rem 1.35rem 3.1rem; position:relative;
+  transition:background .18s var(--ease), color .18s var(--ease);
+}
+/* caixinha de marcação */
+.toggle-card__box::before{
+  content:''; position:absolute; left:1.3rem; top:1.5rem; width:14px; height:14px;
+  border:1px solid var(--ink); border-radius:2px; background:transparent;
+}
+.toggle-card__box::after{
+  content:''; position:absolute; left:1.3rem; top:1.5rem; width:14px; height:14px;
+  background:
+    linear-gradient(45deg, transparent 45%, var(--ink) 45% 58%, transparent 58%) no-repeat,
+    transparent;
+  opacity:0;
+}
+.toggle-card__box strong{ display:block; font-family:var(--font-display); font-size:1rem; margin-bottom:.35rem; }
+.toggle-card__box small{ display:block; font-family:var(--font-sans); font-size:.84rem; color:var(--gray-600); line-height:1.5; }
+.toggle-card:hover .toggle-card__box{ background:var(--paper-dim); }
+.toggle-card input:checked + .toggle-card__box{ background:var(--ink); color:var(--paper); }
+.toggle-card input:checked + .toggle-card__box small{ color:var(--dark-text-dim); }
+.toggle-card input:checked + .toggle-card__box::before{ border-color:var(--paper); background:var(--paper); }
+.toggle-card input:checked + .toggle-card__box::after{
+  opacity:1; left:1.62rem; top:1.58rem; width:5px; height:9px; background:none;
+  border:solid var(--ink); border-width:0 2px 2px 0; transform:rotate(45deg);
+}
+.toggle-card input:focus-visible + .toggle-card__box{ outline:2px solid var(--ink); outline-offset:-4px; }
+.toggle-card input:checked:focus-visible + .toggle-card__box{ outline-color:var(--paper); }
+
+/* ---------- campos ---------- */
+.orc-fields{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.1rem 1.25rem; }
+.field--full{ grid-column:1 / -1; }
+.orc-body .field label:not(.chip), .field__label{
+  font-family:var(--font-sans); font-size:.9rem; font-weight:500; letter-spacing:0; text-transform:none; color:var(--ink);
+}
+.field__req{ font-weight:400; color:var(--gray-600); font-size:.82rem; }
+.field input, .field select, .field textarea{ background:var(--paper); width:100%; min-height:46px; }
+.field textarea{ resize:vertical; min-height:120px; line-height:1.5; font-family:var(--font-sans); }
+.field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--ink); box-shadow:0 0 0 1px var(--ink); }
+.field input[aria-invalid="true"]{ border-color:var(--danger); box-shadow:0 0 0 1px var(--danger); }
+.field select{ appearance:none; -webkit-appearance:none; padding-right:2.4rem;
+  background-image:linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position:calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size:5px 5px, 5px 5px; background-repeat:no-repeat;
+}
+
+/* ---------- chips (checkbox / radio em pílula) ---------- */
+.chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.chip{ position:relative; cursor:pointer; }
+.field label.chip{ text-transform:none; letter-spacing:0; font-size:inherit; color:inherit; }
+.chip input{ position:absolute; opacity:0; width:1px; height:1px; }
+.chip span{
+  display:inline-block; font-family:var(--font-mono); font-size:.8rem; padding:.6em 1.1em;
+  border:1px solid var(--line); border-radius:100px; color:var(--ink-soft); background:var(--paper);
+  transition:background .15s var(--ease), color .15s var(--ease), border-color .15s var(--ease);
+}
+.chip:hover span{ border-color:var(--ink); }
+.chip input:checked + span{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.chip input:focus-visible + span{ outline:2px solid var(--ink); outline-offset:2px; }
+
+/* ---------- resumo do pedido ---------- */
+.orc-summary{ position:sticky; top:90px; }
+.orc-card{
+  background:var(--dark-bg); color:var(--dark-text); border-radius:6px; padding:1.9rem 1.75rem;
+  display:flex; flex-direction:column; gap:1.1rem; box-shadow:0 20px 50px rgba(10,10,10,.18);
+}
+.orc-card__title{ font-family:var(--font-display); font-size:1.3rem; font-weight:600; }
+.orc-resumo{ margin:0; display:flex; flex-direction:column; }
+.orc-resumo__row{
+  display:grid; grid-template-columns:5.5rem 1fr; gap:1rem; padding:.62em 0;
+  border-bottom:1px solid var(--dark-line); font-family:var(--font-sans); font-size:.9rem;
+}
+.orc-resumo__row dt{ color:var(--dark-text-dim); }
+.orc-resumo__row dd{ margin:0; color:var(--dark-text); overflow-wrap:anywhere; }
+.orc-resumo__row dd.is-empty{ color:rgba(241,240,236,.3); }
+.orc-msg{ font-size:.88rem; color:#FFB4AB; }
+.orc-msg:empty{ display:none; }
+.orc-cta{
+  display:flex; align-items:center; justify-content:center; gap:.6rem; width:100%;
+  background:var(--paper); color:var(--ink); border:1px solid var(--paper); border-radius:var(--radius);
+  font-family:var(--font-mono); font-size:.92rem; font-weight:600; padding:1em 1.2em;
+  transition:background .18s var(--ease), color .18s var(--ease), opacity .18s;
+}
+.orc-cta:hover{ background:transparent; color:var(--paper); }
+.orc-cta__icon{ width:20px; height:20px; fill:currentColor; flex-shrink:0; }
+.orc-cta.is-pending{ opacity:.6; }
+.orc-note{ font-size:.82rem; color:var(--dark-text-dim); line-height:1.55; }
+
+@media (max-width:900px){
+  .orc-grid{ grid-template-columns:1fr; }
+  .orc-summary{ position:static; }
+}
+@media (max-width:640px){
+  .orc-hero{ padding:120px 0 40px; }
+  .orc-body{ padding:48px 0 90px; }
+  /* 2 colunas também no celular: menos rolagem */
+  .orc-options{ grid-template-columns:repeat(2,1fr); }
+  .orc-options .toggle-card__box{ padding:1rem .85rem 1.05rem; }
+  .orc-options .toggle-card__box::before{ left:auto; right:.75rem; top:.95rem; }
+  .orc-options .toggle-card input:checked + .toggle-card__box::after{ left:auto; right:1.05rem; top:1.02rem; }
+  .orc-options .toggle-card__box strong{ font-size:.9rem; line-height:1.25; padding-right:1.4rem; margin-bottom:.4rem; }
+  .orc-options .toggle-card__box small{ font-size:.76rem; line-height:1.4; }
+  .toggle-card--unsure .toggle-card__box{ padding:1rem 1rem 1.05rem 2.8rem; }
+  .toggle-card--unsure .toggle-card__box::before{ left:1rem; top:1.1rem; }
+  .toggle-card--unsure input:checked + .toggle-card__box::after{ left:1.32rem; top:1.18rem; }
+  .orc-fields{ grid-template-columns:1fr; }
+  .orc-card{ padding:1.5rem 1.25rem; }
+  .orc-resumo__row{ grid-template-columns:4.8rem 1fr; font-size:.88rem; }
+  .orc-step__title{ font-size:1.15rem; }
+}

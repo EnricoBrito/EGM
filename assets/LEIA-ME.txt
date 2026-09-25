@@ -1,0 +1,38 @@
+IMAGENS DO SITE EGM
+===================
+
+Todas as imagens ficam direto nesta pasta (assets/), com o nome exato abaixo.
+Não precisa mexer em código: o site encontra cada uma pelo nome. Se um arquivo
+não existir, aparece um espaço reservado no lugar (nada quebra).
+
+LOGO
+  logo.png          -> imagem de compartilhamento (quando mandam o link no WhatsApp etc.)
+  logo-icone.png    -> ícone da aba do navegador. É um recorte quadrado do logo.png
+                       (ícone precisa ser quadrado, senão fica minúsculo na aba).
+                       Se trocar o logo, gere um novo recorte quadrado com esse nome.
+
+EQUIPE (seção "quem somos")
+  enrico.png, mateus.png, gustavo.png
+  -> aparecem coloridas, pequenas e quadradas. As atuais já estão recortadas
+     com o rosto do mesmo tamanho nas três. Se trocar alguma, use uma foto de
+     perto, com o rosto centralizado no terço de cima.
+
+PROVAS DOS TRABALHOS (galeria de cada trabalho)
+  smart1.png, smart2.png, smart3.png
+  plus1.png,  plus2.png,  plus3.png
+  -> qualquer formato serve: a imagem aparece inteira e amplia ao clicar.
+  -> fica mais bonito assim:
+       - celular (mockup): PNG com FUNDO TRANSPARENTE. Ele aparece "solto"
+         no quadro, com sombra. As 4 imagens de celular atuais já foram
+         recortadas assim. Com fundo preto ou branco, aparece um retângulo.
+       - print de tela (tabela, painel, anúncio): recorte sem sobra de
+         margem em volta. Ele vira um cartão com canto arredondado.
+  -> as legendas ficam em data/projects.json, no campo "gallery".
+
+APLICATIVO (zoom interativo no trabalho da Smart)
+  smart-app.png, smart-app.webp, smart-app-sm.webp
+
+DICA DE PESO
+  As imagens atuais já foram otimizadas (de ~13 MB pra ~3 MB no total).
+  Se colocar imagens novas, prefira até ~1000 px de altura: o site fica
+  bem mais rápido no celular.

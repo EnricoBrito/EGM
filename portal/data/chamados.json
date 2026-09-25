@@ -1,6 +1,0 @@
-[
-  { "id": "CH-1042", "clienteId": "plus-camas", "titulo": "Bot não reconhece áudio às vezes", "urgencia": "media", "status": "aberto", "criadoEm": "2026-08-05T14:22:00" },
-  { "id": "CH-1041", "clienteId": "autoescola-virtual", "titulo": "Cobrança do mês de julho pendente", "urgencia": "alta", "status": "aberto", "criadoEm": "2026-08-02T09:10:00" },
-  { "id": "CH-1039", "clienteId": "plus-camas", "titulo": "Ajuste no fluxo de frete", "urgencia": "baixa", "status": "resolvido", "criadoEm": "2026-07-18T11:00:00" },
-  { "id": "CH-1035", "clienteId": "smart-auto", "titulo": "Erro ao consultar estoque de um modelo", "urgencia": "media", "status": "resolvido", "criadoEm": "2026-07-02T16:45:00" }
-]

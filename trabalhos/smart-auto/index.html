@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Auto Veículos | EGM</title>
+<meta name="description" content="Como a EGM fez esse projeto, da primeira conversa à entrega.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/png" href="../../assets/logo-icone.png">
+<link rel="apple-touch-icon" href="../../assets/logo-icone.png">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.egm.tec.br/assets/logo.png">
+<meta property="og:url" content="https://www.egm.tec.br/trabalhos/smart-auto/">
+<meta property="og:site_name" content="EGM">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/trabalho.css">
+</head>
+<body data-root="../../" data-project="smart-auto">
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../../" class="nav__logo">EGM</a>
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="../../#servicos">o que fazemos</a>
+      <a href="../../#processo">como trabalhamos</a>
+      <a href="../../#trabalhos">trabalhos</a>
+      <a href="../../#sobre">quem somos</a>
+      <a href="../../orcamento/">orçamento</a>
+      <a href="../../duvidas/">dúvidas</a>
+      <a href="https://wa.me/5511942544758?text=Ol%C3%A1%21%20Gostaria%20de%20marcar%20uma%20reuni%C3%A3o%20com%20a%20EGM." target="_blank" rel="noopener" class="nav__cta nav__cta--primary">marcar reunião</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div id="trabalhoContent">
+    <p class="trabalho-loading section-inner">carregando...</p>
+  </div>
+</main>
+
+<template id="trabalhoTemplate">
+  <section class="trabalho-hero">
+    <div class="section-inner">
+      <a href="../../#trabalhos" class="trabalho-back">← todos os trabalhos</a>
+      <p class="eyebrow" data-field="categoria"></p>
+      <h1 class="section-title trabalho-hero__title" data-field="nome"></h1>
+      <div class="trabalho-tags" data-field="tags"></div>
+    </div>
+  </section>
+
+  <section class="trabalho-stats-section section-tint">
+    <div class="section-inner trabalho-stats">
+      <div class="trabalho-stat">
+        <span class="trabalho-stat__value" data-field="prazoProducao"></span>
+        <span class="trabalho-stat__label">pra ficar pronto</span>
+      </div>
+      <div class="trabalho-stat">
+        <span class="trabalho-stat__value" data-field="prazoImplantacao"></span>
+        <span class="trabalho-stat__label">pra colocar no ar</span>
+      </div>
+      <a href="../../#processo" class="trabalho-stat trabalho-stat--link">
+        <span class="trabalho-stat__value">→</span>
+        <span class="trabalho-stat__label">veja como trabalhamos</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="trabalho-gallery-section">
+    <div class="section-inner">
+      <p class="eyebrow">Como ficou</p>
+      <h2 class="section-title">Um pouco do que foi construído.</h2>
+      <p class="section-lead trabalho-gallery-note" data-field="galleryNote" hidden>As imagens reais entram aqui assim que o cliente liberar.</p>
+      <div class="trabalho-gallery" data-field="gallery"></div>
+    </div>
+  </section>
+
+  <section class="trabalho-detail-section section-tint">
+    <div class="section-inner">
+      <div class="trabalho-detail">
+        <div>
+          <p class="eyebrow">O que foi feito</p>
+          <p class="trabalho-summary" data-field="summary"></p>
+          <p class="trabalho-body" data-field="detail"></p>
+        </div>
+        <p class="trabalho-metric" data-field="metric"></p>
+      </div>
+      <div class="trabalho-entregas" data-field="entregas" hidden></div>
+    </div>
+  </section>
+
+  <!-- APLICATIVO: parte do trabalho, só aparece se o projeto tiver "app" no JSON.
+       Imagem pequena + zoom que passeia pelas partes da tela. -->
+  <section class="app-part" data-field="app" hidden>
+    <div class="section-inner">
+      <div class="app-part__head">
+        <p class="eyebrow">Aplicativo</p>
+        <h2 class="section-title app-part__title" data-field="appTitulo"></h2>
+        <p class="app-part__lead" data-field="appDescricao"></p>
+      </div>
+      <div class="app-tour" data-field="appTour">
+        <div class="app-tour__stage">
+          <div class="app-tour__frame">
+          <button type="button" class="app-tour__zoom" data-field="appZoom" aria-label="Ver a tela inteira do aplicativo">
+            <picture>
+              <source type="image/webp" data-field="appWebp">
+              <img class="app-tour__zoom-img" data-field="appImg" width="775" height="1606" alt="" decoding="async">
+            </picture>
+          </button>
+          <div class="app-tour__mini" aria-hidden="true">
+            <img data-field="appMini" width="775" height="1606" alt="" decoding="async">
+            <span class="app-tour__spot"></span>
+          </div>
+          </div>
+          <p class="app-tour__hint">Toque na imagem pra ver a tela inteira</p>
+        </div>
+        <div class="app-tour__tabs" role="tablist" aria-label="O que o aplicativo mostra" data-field="appRecursos"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trabalho-cta">
+    <div class="section-inner trabalho-cta__inner">
+      <div>
+        <h2 class="section-title trabalho-cta__title">Quer algo parecido pra sua empresa?</h2>
+        <p class="section-lead trabalho-cta__lead">A gente monta a combinação certa pro seu caso.</p>
+      </div>
+      <div class="trabalho-cta__actions">
+        <a href="../../orcamento/" class="btn btn--primary" data-field="orcamento">Pedir orçamento</a>
+        <a href="#" class="btn btn--ghost" data-field="whatsapp" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</template>
+
+<footer class="footer">
+  <canvas class="nodegraph-canvas" id="nodegraphFooter" aria-hidden="true"></canvas>
+  <div class="section-inner footer__grid">
+    <div>
+      <p class="footer__logo">EGM</p>
+      <p class="footer__meaning">Evolution, Growth &amp; Modernization</p>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">contato</p>
+      <a href="mailto:egm.dev@gmail.com">egm.dev@gmail.com</a>
+      <a href="https://wa.me/5511942544758" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="footer__col">
+      <p class="footer__label">navegação</p>
+      <a href="../../#servicos">o que fazemos</a>
+      <a href="../../#processo">como trabalhamos</a>
+      <a href="../../#trabalhos">trabalhos</a>
+      <a href="../../#sobre">quem somos</a>
+      <a href="../../orcamento/">orçamento</a>
+      <a href="../../duvidas/">dúvidas</a>
+    </div>
+  </div>
+  <div class="footer__bottom section-inner">
+    <span>© <span id="year"></span> EGM. Todos os direitos reservados.</span>
+  </div>
+</footer>
+
+<a href="../../orcamento/" class="float-cta" id="floatCta">
+  <span class="float-cta__icon" aria-hidden="true">＋</span> Pedir orçamento
+</a>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox__backdrop" data-lightbox-close></div>
+  <button class="lightbox__close" id="lightboxClose" aria-label="Fechar" data-lightbox-close>×</button>
+  <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Imagem anterior">←</button>
+  <figure class="lightbox__figure">
+    <img class="lightbox__img" id="lightboxImg" alt="">
+    <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Próxima imagem">→</button>
+</div>
+
+<script src="../../js/nodegraph.js"></script>
+<script src="../../js/site-common.js"></script>
+<script src="../../js/trabalho.js"></script>
+</body>
+</html>

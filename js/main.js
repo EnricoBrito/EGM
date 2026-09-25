@@ -4,16 +4,28 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------------------------------------------------------
-     NODE GRAPH — hero background (footer graph is handled by
-     site-common.js, shared across every page)
+     NODE GRAPH — fundo do hero e do banner de orçamento
+     (o do rodapé fica no site-common.js, compartilhado entre
+     todas as páginas). No hero a rede "contorna" o texto: fica
+     mais apagada atrás dele, então o título continua legível no
+     celular sem perder o fundo.
   --------------------------------------------------------- */
   if (window.EGM_initNodeGraph) {
-    window.EGM_initNodeGraph(document.getElementById('nodegraphHero'), { density: 0.00022, maxLinkDist: 190, speed: 0.16 });
-    window.EGM_initNodeGraph(document.getElementById('nodegraphCalcPromo'), { density: 0.00016, maxLinkDist: 170, speed: 0.13 });
+    window.EGM_initNodeGraph(document.getElementById('nodegraphHero'), {
+      avoid: document.getElementById('heroContent'),
+      avoidStrength: 0.72,
+      cellsAcross: 17, cellsAcrossMobile: 6, spacing: [58, 92],
+      maxLinks: 4, lineAlpha: 0.3, nodeAlpha: 0.8,
+      seed: 11
+    });
+    window.EGM_initNodeGraph(document.getElementById('nodegraphCalcPromo'), {
+      cellsAcross: 13, spacing: [64, 104], lineAlpha: 0.2, pulses: true, seed: 5,
+      avoid: document.querySelector('.calc-promo__inner'), avoidStrength: 0.8
+    });
   }
 
   /* ---------------------------------------------------------
-     GENERIC SCROLL REVEAL
+     SCROLL REVEAL
   --------------------------------------------------------- */
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -22,7 +34,7 @@
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
 
   function makeRevealable(selector) {
     document.querySelectorAll(selector).forEach((el) => {
@@ -32,10 +44,10 @@
   }
 
   /* ---------------------------------------------------------
-     CARD TILT — portfolio cards
+     CARD TILT — cards de trabalho
   --------------------------------------------------------- */
   function attachTilt(el) {
-    if (reduceMotion) return;
+    if (reduceMotion || window.matchMedia('(hover: none)').matches) return;
     el.addEventListener('pointermove', (e) => {
       const r = el.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width - 0.5;
@@ -46,10 +58,24 @@
   }
 
   makeRevealable('.service-card');
-  makeRevealable('.manifesto__statement, .manifesto__body');
+  makeRevealable('.about__intro');
+  makeRevealable('.member');
 
   /* ---------------------------------------------------------
-     DATA LOADING
+     EQUIPE — fotos em assets/{nome}.png (enrico, mateus, gustavo)
+     Enquanto a foto não existir, fica o quadro com as iniciais.
+  --------------------------------------------------------- */
+  document.querySelectorAll('.member__photo img').forEach((img) => {
+    const frame = img.closest('.member__photo');
+    const markEmpty = () => { frame.classList.add('is-empty'); img.hidden = true; };
+    const markLoaded = () => frame.classList.add('is-loaded');
+    img.addEventListener('error', markEmpty);
+    img.addEventListener('load', markLoaded);
+    if (img.complete) { if (img.naturalWidth === 0) markEmpty(); else markLoaded(); }
+  });
+
+  /* ---------------------------------------------------------
+     DADOS
   --------------------------------------------------------- */
   Promise.all([
     fetch('data/timeline.json').then((r) => r.json()),
@@ -60,11 +86,13 @@
       renderTimeline(timeline);
       renderPortfolio(projects);
       initServiceModals(services);
+      // o conteúdo novo empurrou as seções: se a pessoa chegou com #secao, reposiciona
+      requestAnimationFrame(() => window.EGM_realign && window.EGM_realign());
     })
     .catch((err) => {
       console.error('EGM: falha ao carregar dados JSON.', err);
       const grid = document.getElementById('portfolioGrid');
-      if (grid) grid.innerHTML = '<p style="font-family:var(--font-mono);font-size:.85rem;color:var(--gray-600);">Não foi possível carregar os dados. Se você abriu este arquivo direto do disco, rode um servidor local (ex: <code>python -m http.server</code>). Navegadores bloqueiam a leitura de JSON via file://.</p>';
+      if (grid) grid.innerHTML = '<p style="font-family:var(--font-mono);font-size:.85rem;color:var(--gray-600);padding:2rem;">Não foi possível carregar os dados. Se você abriu este arquivo direto do disco, rode um servidor local (ex: <code>python -m http.server</code>). Navegadores bloqueiam a leitura de JSON via file://.</p>';
     });
 
   /* ---------------------------------------------------------
@@ -106,27 +134,23 @@
           requestAnimationFrame(() => { updateRail(); ticking = false; });
           ticking = true;
         }
-      });
+      }, { passive: true });
       updateRail();
     }
   }
 
   /* ---------------------------------------------------------
-     PORTFOLIO — cards now link through to a full case-study
-     page (trabalho.html?id=...) instead of a modal, so there's
-     room for a gallery, timeline and "how we built it" detail.
+     TRABALHOS — todos os cards no mesmo formato; cada um leva
+     pra página do trabalho (trabalhos/{id}/)
   --------------------------------------------------------- */
   const SERVICE_LABELS = { bot: 'Bot + IA', trafego: 'Tráfego Pago', 'google-ads': 'Google Ads', sistema: 'Sistema', site: 'Site', relatorios: 'Relatórios' };
-  const FILTER_GROUP = { bot: 'bot', trafego: 'trafego', 'google-ads': 'trafego', sistema: 'sistema', site: 'site', relatorios: 'relatorios' };
 
   function renderPortfolio(projects) {
     const grid = document.getElementById('portfolioGrid');
     grid.innerHTML = '';
     projects.forEach((p) => {
-      const filterGroups = Array.from(new Set(p.services.map((s) => FILTER_GROUP[s] || s)));
       const card = document.createElement('a');
-      card.href = `trabalho.html?id=${encodeURIComponent(p.id)}`;
-      card.dataset.categories = filterGroups.join(' ');
+      card.href = `trabalhos/${encodeURIComponent(p.id)}/`;
       card.className = 'project-card';
       card.innerHTML = `
         <div class="project-card__top">
@@ -142,40 +166,34 @@
       attachTilt(card);
     });
     makeRevealable('.project-card');
-
-    document.querySelectorAll('.filter-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach((b) => { b.classList.remove('is-active'); b.setAttribute('aria-selected', 'false'); });
-        btn.classList.add('is-active');
-        btn.setAttribute('aria-selected', 'true');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.project-card').forEach((card) => {
-          const cats = card.dataset.categories.split(' ');
-          card.classList.toggle('is-hidden', filter !== 'all' && !cats.includes(filter));
-        });
-      });
-    });
   }
 
   /* ---------------------------------------------------------
-     SERVICES — "conheça mais" detail modal
+     SERVIÇOS — janela "saiba mais", com atalho pro orçamento
+     já com o serviço marcado. No celular abre de baixo pra cima.
   --------------------------------------------------------- */
   const modal = document.getElementById('infoModal');
-  function openModal({ eyebrow, title, subtitle, detail, chips, metric }) {
-    document.getElementById('modalCategory').textContent = eyebrow;
-    document.getElementById('modalTitle').textContent = title;
-    document.getElementById('modalClient').textContent = subtitle;
-    document.getElementById('modalDetail').textContent = detail;
-    document.getElementById('modalStack').innerHTML = chips.map((c) => `<span>${c}</span>`).join('');
-    document.getElementById('modalMetric').textContent = metric;
+  const modalCta = document.getElementById('modalCta');
+  let lastFocus = null;
+
+  function openModal(svc) {
+    lastFocus = document.activeElement;
+    document.getElementById('modalTitle').textContent = svc.name;
+    document.getElementById('modalClient').textContent = svc.tagline;
+    document.getElementById('modalDetail').textContent = svc.detail;
+    document.getElementById('modalStack').innerHTML = svc.includes.map((c) => `<li>${c}</li>`).join('');
+    modalCta.href = `orcamento/?servico=${encodeURIComponent(svc.id)}`;
+    modalCta.textContent = `Pedir orçamento de ${svc.name}`;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    modal.querySelector('.modal__close').focus();
   }
   function closeModal() {
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
   }
   modal.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', closeModal));
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
@@ -184,15 +202,7 @@
     document.querySelectorAll('.service-card__more').forEach((btn) => {
       btn.addEventListener('click', () => {
         const svc = services.find((s) => s.id === btn.dataset.service);
-        if (!svc) return;
-        openModal({
-          eyebrow: '> ' + svc.eyebrow,
-          title: svc.name,
-          subtitle: svc.tagline,
-          detail: svc.detail,
-          chips: svc.includes,
-          metric: '// 100% personalizado pro seu negócio'
-        });
+        if (svc) openModal(svc);
       });
     });
   }

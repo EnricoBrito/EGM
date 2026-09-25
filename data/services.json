@@ -1,34 +1,50 @@
 [
   {
     "id": "trafego",
-    "eyebrow": "tráfego pago",
     "name": "Tráfego Pago",
-    "tagline": "Facebook, Instagram e Google Ads, gerenciados de ponta a ponta.",
-    "detail": "Cuidamos da campanha inteira: público, criativo, orçamento e otimização. Você não precisa aprender a mexer no Gerenciador de Anúncios nem no Google Ads, só recebe o relatório de quanto voltou pra cada real investido. O valor da verba de mídia é decidido por você e pago direto à plataforma; o que cobramos é a gestão.",
-    "includes": ["Configuração de campanha", "Criativos e segmentação", "Acompanhamento e otimização semanal", "Relatório de resultado"]
+    "tagline": "Anúncios no Facebook, Instagram e Google, cuidados de perto.",
+    "detail": "A gente cuida de tudo: pra quem o anúncio aparece, as imagens e textos, e os ajustes toda semana. Você não precisa aprender a mexer em nenhuma plataforma, só recebe um relatório simples mostrando quanto voltou pra cada real investido. O dinheiro dos anúncios é você que define e paga direto pro Facebook ou pro Google; a nossa parte é cuidar das campanhas.",
+    "includes": [
+      "Montagem das campanhas",
+      "Imagens, textos e público certo",
+      "Ajustes toda semana",
+      "Relatório de resultado"
+    ]
   },
   {
     "id": "site",
-    "eyebrow": "site",
     "name": "Site",
-    "tagline": "Presença digital feita sob medida, sem builder genérico.",
-    "detail": "Site institucional, landing page ou configurador de produto, construído em código, não em template. Isso significa carregamento rápido, design que não parece com todo mundo, e liberdade total pra crescer depois sem esbarrar em limitação de plataforma.",
-    "includes": ["Design personalizado", "Performance otimizada", "Domínio e hospedagem configurados", "Ajustes de SEO básico"]
+    "tagline": "Sua empresa bem apresentada na internet, sem modelo pronto.",
+    "detail": "Site da empresa, página de vendas ou página pro cliente montar o produto do jeito dele. Tudo feito do zero, então abre rápido, não fica igual ao de todo mundo e pode crescer depois sem limitação.",
+    "includes": [
+      "Visual feito pra sua marca",
+      "Rápido e fácil de usar no celular",
+      "Endereço (domínio) e site no ar",
+      "Ajustes pra aparecer no Google"
+    ]
   },
   {
     "id": "sistema",
-    "eyebrow": "sistema",
     "name": "Sistema",
-    "tagline": "ERP, CRM e painéis feitos pro seu processo, não o contrário.",
-    "detail": "Construímos o sistema em volta de como seu negócio já funciona: cadastro, agenda, controle de estoque, financeiro, o que fizer sentido pra sua operação. Banco de dados seguro, acesso por perfil, e nada de módulo genérico que você paga e nunca usa.",
-    "includes": ["Levantamento do processo real", "Banco de dados seguro", "Painel com controle de acesso por perfil", "Suporte e ajustes pós-entrega"]
+    "tagline": "Programas e aplicativos feitos pra rotina da sua empresa.",
+    "detail": "A gente cria o sistema em cima de como a sua empresa já trabalha: cadastro de clientes, agenda, estoque, vendas, o que fizer sentido pra você. Pode ser um painel no computador ou um aplicativo no celular da equipe, como o que fizemos pra concessionárias. Seus dados ficam guardados com segurança, e cada pessoa da equipe vê só o que precisa.",
+    "includes": [
+      "Conversa pra entender a sua rotina",
+      "Painel no computador ou aplicativo no celular",
+      "Dados guardados com segurança",
+      "Suporte e ajustes depois da entrega"
+    ]
   },
   {
     "id": "bot",
-    "eyebrow": "bot + ia",
     "name": "Bot + IA",
-    "tagline": "Atendimento e vendas no WhatsApp, no automático.",
-    "detail": "Um bot com IA que conversa de verdade. Entende contexto, não só palavra-chave, qualifica o cliente, indica produto, tira dúvida e fecha pedido, 24 horas por dia, sem perder o tom da sua marca. Quando precisa de um humano, ele sabe transferir a conversa na hora certa.",
-    "includes": ["Fluxo de conversa personalizado", "Integração com catálogo, estoque e pagamento", "Transferência pra atendimento humano quando necessário", "Ajuste contínuo do comportamento"]
+    "tagline": "Atendimento automático no WhatsApp, 24 horas por dia.",
+    "detail": "Um atendente virtual com inteligência artificial que conversa de verdade: entende o que o cliente quer, tira dúvidas, indica o produto certo e até fecha o pedido, a qualquer hora, falando do jeito da sua marca. Quando a conversa precisa de uma pessoa, ele passa pra sua equipe na hora certa.",
+    "includes": [
+      "Conversa montada pra sua empresa",
+      "Ligado ao seu catálogo, estoque e pagamento",
+      "Passa pra um atendente quando precisa",
+      "Ajustes contínuos no jeito de responder"
+    ]
   }
 ]

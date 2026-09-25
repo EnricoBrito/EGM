@@ -1,14 +1,16 @@
 (function () {
   'use strict';
 
+  const ROOT = document.body.dataset.root || '';
+
   Promise.all([
-    fetch('data/company.json').then((r) => r.json()),
-    fetch('data/timeline.json').then((r) => r.json())
+    fetch(ROOT + 'data/company.json').then((r) => r.json()),
+    fetch(ROOT + 'data/timeline.json').then((r) => r.json())
   ])
     .then(([company, timeline]) => {
       document.getElementById('statProducao').textContent = company.prazoProducao;
       document.getElementById('statImplantacao').textContent = company.prazoImplantacao;
-      document.getElementById('statModo').textContent = '// ' + company.modoTrabalho;
+      document.getElementById('statModo').textContent = company.modoTrabalho;
 
       const list = document.getElementById('docProcess');
       list.innerHTML = timeline.map((s) => `
