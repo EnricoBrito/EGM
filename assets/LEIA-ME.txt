@@ -12,22 +12,35 @@ LOGO
                        Se trocar o logo, gere um novo recorte quadrado com esse nome.
 
 EQUIPE (seção "quem somos")
-  enrico.png, mateus.png, gustavo.png
+  enrico.png, mateus.png, nicolas.png, gustavo.png
   -> aparecem coloridas, pequenas e quadradas. As atuais já estão recortadas
-     com o rosto do mesmo tamanho nas três. Se trocar alguma, use uma foto de
+     (640x800) com o rosto do mesmo tamanho em todas. Se trocar alguma, use uma foto de
      perto, com o rosto centralizado no terço de cima.
 
 PROVAS DOS TRABALHOS (galeria de cada trabalho)
   smart1.png, smart2.png, smart3.png
   plus1.png,  plus2.png,  plus3.png
+  casa1.png (casa2.png e casa3.png ainda não existem: aparece o espaço reservado)
   -> qualquer formato serve: a imagem aparece inteira e amplia ao clicar.
   -> fica mais bonito assim:
        - celular (mockup): PNG com FUNDO TRANSPARENTE. Ele aparece "solto"
-         no quadro, com sombra. As 4 imagens de celular atuais já foram
+         no quadro, com sombra. As imagens de celular atuais já foram
          recortadas assim. Com fundo preto ou branco, aparece um retângulo.
        - print de tela (tabela, painel, anúncio): recorte sem sobra de
          margem em volta. Ele vira um cartão com canto arredondado.
   -> as legendas ficam em data/projects.json, no campo "gallery".
+
+LOGO DA EGM
+  logo-mark.svg  -> hexágono do menu (vetor, 2 KB, nítido em qualquer tela). Gerado a partir
+                    de logo-icone.png. Se a logo mudar, troque este arquivo.
+  logo-icone.png -> ícone da aba do navegador (fundo claro de propósito, aparece em abas escuras).
+  logo.png       -> imagem de compartilhamento (WhatsApp, redes sociais).
+
+LOGO DO CLIENTE (selo no topo da página do trabalho)
+  casa-logo.png -> logo da Casa do Colchão, recortada rente e sobre fundo branco
+                   (aparece dentro de um cartão branco). Pra outro trabalho, salve
+                   o logo em assets/ e coloque "logo": "assets/arquivo.png" no
+                   data/projects.json. Sem esse campo, o selo não aparece.
 
 APLICATIVO (zoom interativo no trabalho da Smart)
   smart-app.png, smart-app.webp, smart-app-sm.webp

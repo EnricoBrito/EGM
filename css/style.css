@@ -126,17 +126,21 @@ input,select,textarea{ font:inherit; color:inherit; }
    ============================================================ */
 .nav{
   position:fixed; top:0; left:0; right:0; z-index:500;
-  background:rgba(241,240,236,0.88); backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
+  background:rgba(241,240,236,0.97);
+  border-bottom:1px solid var(--line); transition:box-shadow .25s;
 }
+.nav.is-scrolled{ box-shadow:0 10px 28px -18px rgba(10,10,10,.35); }
 .nav__inner{
   max-width:var(--max); margin:0 auto; padding:0 var(--gutter);
   height:64px; display:flex; align-items:center; justify-content:space-between;
 }
-.nav__logo{ font-weight:700; font-size:1.1rem; letter-spacing:-0.02em; }
+.nav__logo{ display:inline-flex; align-items:center; padding:.5rem 0; }
+.nav__logo img{ display:block; height:32px; width:auto; transition:transform .25s ease, opacity .2s; }
+.nav__logo:hover img{ transform:scale(1.06); opacity:.8; }
 .nav__links{ display:flex; align-items:center; gap:1.6rem; font-size:.82rem; letter-spacing:.02em; }
 .nav__links a{ opacity:.75; transition:opacity .15s; white-space:nowrap; }
 .nav__links a:hover{ opacity:1; }
+.nav__links a[aria-current]:not(.nav__cta){ opacity:1; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:7px; }
 .nav__cta{ border:1px solid var(--ink); padding:.5em 1em; border-radius:var(--radius); opacity:1 !important; }
 .nav__cta--primary{ background:var(--ink); color:var(--paper); }
 .nav__cta--primary:hover{ background:var(--ink-soft); }
@@ -168,6 +172,8 @@ input,select,textarea{ font:inherit; color:inherit; }
   padding:128px 0 112px; isolation:isolate;
 }
 .nodegraph-canvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+/* arrastando o fundo (js/nodegraph.js): não deixa o texto da seção ser selecionado sem querer */
+.is-dragging{ -webkit-user-select:none; user-select:none; }
 .hero::after{
   content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
   background:
@@ -200,7 +206,7 @@ input,select,textarea{ font:inherit; color:inherit; }
 }
 
 /* ============================================================
-   QUEM SOMOS — equipe com os 3 lado a lado, em qualquer tela
+   QUEM SOMOS — equipe: 4 lado a lado no computador, 2x2 no tablet e no celular
    ============================================================ */
 .about{ padding:100px 0; border-bottom:1px solid var(--line); }
 .about__intro{ max-width:720px; margin-bottom:3rem; }
@@ -208,10 +214,10 @@ input,select,textarea{ font:inherit; color:inherit; }
 .about__lead strong{ color:var(--ink); }
 .about__lead em{ font-style:normal; color:var(--ink); }
 
-.team{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(.65rem,3vw,2.5rem); max-width:1000px; }
+.team{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(1.25rem,3vw,2.5rem); max-width:1040px; }
 .member{ display:flex; flex-direction:column; min-width:0; }
 
-/* Foto: assets/{enrico|mateus|gustavo}.png, colorida e pequena. */
+/* Foto: assets/{enrico|mateus|nicolas|gustavo}.png, colorida e pequena. */
 .member__photo{
   position:relative; aspect-ratio:1/1; width:100%; max-width:168px; overflow:hidden; border-radius:6px;
   background:
@@ -251,16 +257,19 @@ input,select,textarea{ font:inherit; color:inherit; }
 .team__together-link::after{ content:' →'; }
 .team__together-link:hover{ border-bottom-style:dashed; }
 
-/* celular: continua 3 lado a lado, só mais enxuto */
+/* tablet e celular: 2x2, com bastante espaço pra ler o texto de cada pessoa */
+@media (max-width:860px){
+  .team{ grid-template-columns:repeat(2,1fr); gap:2rem clamp(1rem,4vw,2rem); max-width:640px; }
+}
 @media (max-width:640px){
   .about{ padding:64px 0; }
   .about__intro{ margin-bottom:1.75rem; }
   .about__lead{ font-size:.95rem; }
-  .member__photo{ max-width:none; margin-bottom:.6rem; }
-  .member__name{ font-size:.92rem; }
-  .member__role{ font-size:.66rem; line-height:1.35; margin-bottom:.45rem; }
-  .member__bio{ font-size:.76rem; line-height:1.45; margin-bottom:.6rem; color:var(--gray-600); }
-  .member__front{ font-size:.6rem; padding:.28em .6em; }
+  .member__photo{ max-width:none; margin-bottom:.75rem; }
+  .member__name{ font-size:1rem; }
+  .member__role{ font-size:.72rem; line-height:1.35; margin-bottom:.5rem; }
+  .member__bio{ font-size:.82rem; line-height:1.45; margin-bottom:.7rem; color:var(--gray-600); }
+  .member__front{ font-size:.66rem; padding:.28em .7em; }
   .team__together{ margin-top:2rem; font-size:1rem; }
 }
 
@@ -370,6 +379,11 @@ input,select,textarea{ font:inherit; color:inherit; }
 }
 .project-card__more{ font-size:.75rem; letter-spacing:.06em; color:var(--gray-600); text-transform:uppercase; }
 .project-card.is-hidden{ display:none; }
+
+/* com 2 colunas e um número ímpar de trabalhos, o último ocupa a linha toda (sem buraco) */
+@media (min-width:641px) and (max-width:978px){
+  .portfolio__grid .project-card:last-child:nth-child(odd){ grid-column:1 / -1; }
+}
 
 @media (max-width:640px){
   .portfolio{ padding:80px 0; }
@@ -502,8 +516,8 @@ input,select,textarea{ font:inherit; color:inherit; }
    SCROLL PROGRESS
    ============================================================ */
 .scroll-progress{
-  position:fixed; top:0; left:0; height:2px; width:0%; background:var(--ink);
-  z-index:600; transition:width .1s linear;
+  position:fixed; top:0; left:0; height:2px; width:100%; background:var(--ink);
+  z-index:600; transform:scaleX(0); transform-origin:0 0; will-change:transform;
 }
 
 /* ============================================================
@@ -555,3 +569,90 @@ input,select,textarea{ font:inherit; color:inherit; }
    ============================================================ */
 .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
 .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+
+/* ============================================================
+   A DIFERENÇA — sem bot x com bot (animação de 16 s em loop)
+   Só transform/opacity (leve). js/main.js liga .is-live quando a
+   seção está na tela e pausa fora dela. Sem JS ou com "reduzir
+   movimento": tudo aparece parado, já na conversa completa.
+   ============================================================ */
+.race{ padding:100px 0; border-bottom:1px solid var(--line); }
+.race .section-title{ margin-bottom:3rem; }
+.race__phones{ display:flex; justify-content:center; flex-wrap:wrap; gap:clamp(2rem,6vw,4.5rem); }
+.race__col{ width:300px; max-width:100%; }
+.race__tag{
+  display:inline-block; margin-bottom:1rem; padding:.4em 1em; border-radius:999px;
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
+}
+.race__tag--off{ border:1px solid var(--ink); }
+.race__tag--on{ background:var(--ink); color:var(--paper); }
+.race__phone{
+  height:600px; padding:10px; border-radius:40px; background:var(--ink);
+  box-shadow:0 30px 60px -32px rgba(10,10,10,.55);
+}
+.race__screen{ height:100%; border-radius:31px; overflow:hidden; display:flex; flex-direction:column; background:#E4E2DA; }
+.race__head{ padding:1rem; background:var(--ink-soft); color:var(--paper); font-size:.88rem; font-weight:500; }
+.race__head span{ opacity:.7; font-weight:400; font-size:.76rem; }
+.race__chat{ flex:1; padding:.9rem; display:flex; flex-direction:column; justify-content:flex-end; gap:.45rem; font-size:.82rem; line-height:1.35; }
+.race__msg{ padding:.6rem .8rem; border-radius:14px; max-width:86%; }
+.race__msg--me{ align-self:flex-end; background:var(--ink); color:#fff; }
+.race__msg--them{ align-self:flex-start; background:#fff; color:var(--ink); }
+.race__msg strong{ font-weight:500; }
+.race__msg span{ color:var(--gray-600); }
+.race__msg--wait{ color:var(--gray-600); }
+.race__pill{ align-self:center; margin-bottom:.4rem; padding:.45rem .9rem; border-radius:999px; background:#fff; color:var(--gray-600); font-size:.76rem; }
+.race__dot{ display:inline-block; width:6px; height:6px; margin-right:3px; border-radius:50%; background:var(--gray-600); animation:race-dot 1.2s infinite; }
+.race__dot:nth-child(2){ animation-delay:.2s; }
+.race__dot:nth-child(3){ animation-delay:.4s; }
+.race__caption{ margin-top:1.25rem; color:var(--gray-600); font-size:.98rem; line-height:1.5; }
+.race__nav{ display:none; }
+.race__actions{ display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; margin-top:3.5rem; }
+.race__note{ margin-top:1.5rem; text-align:center; color:var(--gray-600); font-size:.82rem; }
+
+.race__a{ animation-duration:16s; animation-iteration-count:infinite; animation-fill-mode:both; animation-timing-function:ease; }
+.ra1{ animation-name:race-s1; } .ra2{ animation-name:race-s2; } .ra3{ animation-name:race-s3; } .ra4{ animation-name:race-s4; }
+.ra5{ animation-name:race-s5; } .ra6{ animation-name:race-s6; } .ra7{ animation-name:race-s7; } .ra8{ animation-name:race-s8; }
+@keyframes race-s1{0%,3%{opacity:0;transform:translateY(10px)}6%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes race-s2{0%,9%{opacity:0;transform:translateY(10px)}12%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes race-s3{0%,22%{opacity:0;transform:translateY(10px)}25%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes race-s4{0%,31%{opacity:0;transform:translateY(10px)}34%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes race-s5{0%,44%{opacity:0;transform:translateY(10px)}47%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes race-s6{0%,53%{opacity:0;transform:translateY(10px)}56%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes race-s7{0%,66%{opacity:0;transform:translateY(10px)}69%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes race-s8{0%,75%{opacity:0;transform:translateY(10px)}78%,94%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes race-dot{ 0%,100%{ opacity:.25; } 50%{ opacity:1; } }
+/* o JS marca .race--ready; sem ele (ou fora da tela) a animação não fica rodando à toa */
+.race--ready:not(.is-live) .race__a,
+.race--ready:not(.is-live) .race__dot{ animation-play-state:paused; }
+@media (prefers-reduced-motion:reduce){ .race__a, .race__dot{ animation:none; } }
+
+@media (max-width:700px){
+  .race{ padding:72px 0; }
+  .race .section-title{ margin-bottom:2rem; }
+  .race__phone{ height:560px; }
+  .race__actions .btn{ width:100%; justify-content:center; }
+
+  /* celular: um atendimento por vez (sem pedaço do próximo); troca pelo botão ou arrastando */
+  .race__phones{
+    flex-wrap:nowrap; justify-content:flex-start; gap:0;
+    overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain;
+    padding-bottom:2.25rem; margin-bottom:-1rem;
+    scrollbar-width:none; -webkit-overflow-scrolling:touch;
+  }
+  .race__phones::-webkit-scrollbar{ display:none; }
+  .race__col{ flex:0 0 100%; width:100%; display:flex; flex-direction:column; align-items:center; scroll-snap-align:center; scroll-snap-stop:always; }
+  .race__col > .race__phone, .race__col > .race__caption{ width:min(300px,100%); box-sizing:border-box; }
+  .race__caption{ text-align:center; }
+  .race__nav{ display:flex; justify-content:center; margin-top:1.25rem; }
+  .race__next{
+    display:inline-flex; align-items:center; gap:.65rem; padding:.85rem 1.3rem; border:0; border-radius:999px;
+    background:var(--ink); color:var(--paper); cursor:pointer;
+    font-family:var(--font-mono); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
+  }
+  .race__arrow{ display:inline-block; font-size:1.05rem; line-height:1; animation:race-nudge 1.6s ease-in-out infinite; }
+  .race__next[data-dir="back"] .race__arrow{ animation-name:race-nudge-back; }
+}
+@keyframes race-nudge{ 0%,100%{ transform:translateX(0); } 50%{ transform:translateX(5px); } }
+@keyframes race-nudge-back{ 0%,100%{ transform:translateX(0); } 50%{ transform:translateX(-5px); } }
+@media (prefers-reduced-motion:reduce){ .race__arrow{ animation:none; } }

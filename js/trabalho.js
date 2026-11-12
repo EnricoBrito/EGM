@@ -33,6 +33,14 @@
 
       const node = document.getElementById('trabalhoTemplate').content.cloneNode(true);
 
+      const clientBadge = $(node, 'logo');
+      if (clientBadge && project.logo) {
+        const logoImg = clientBadge.querySelector('img');
+        logoImg.src = url(project.logo);
+        logoImg.alt = `Logo ${project.nome}`;
+        clientBadge.hidden = false;
+      }
+
       $(node, 'categoria').textContent = project.categoria;
       $(node, 'nome').textContent = project.nome;
       $(node, 'tags').innerHTML = project.services.map((s) => `<span>${SERVICE_LABELS[s] || s}</span>`).join('');

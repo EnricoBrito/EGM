@@ -6,6 +6,13 @@
 .trabalho-hero{ padding:140px 0 56px; border-bottom:1px solid var(--line); }
 .trabalho-back{ display:inline-block; font-family:var(--font-mono); font-size:.8rem; color:var(--gray-600); margin-bottom:2rem; border-bottom:1px dashed var(--gray-400); }
 .trabalho-back:hover{ color:var(--ink); border-color:var(--ink); }
+/* selo do cliente (logo): só aparece quando o trabalho tem "logo" no JSON */
+.trabalho-client{
+  display:inline-flex; align-items:center; margin-bottom:1.5rem; padding:.6rem 1rem;
+  background:#fff; border:1px solid var(--line); border-radius:8px;
+}
+.trabalho-client[hidden]{ display:none; }
+.trabalho-client img{ display:block; height:46px; width:auto; max-width:100%; }
 .trabalho-hero__title{ max-width:26ch; margin-bottom:1.5rem; }
 .trabalho-tags{ display:flex; flex-wrap:wrap; gap:.5rem; }
 .trabalho-tags span{
@@ -30,6 +37,8 @@
 
 @media (max-width:700px){
   .trabalho-hero{ padding:112px 0 40px; }
+  .trabalho-client{ padding:.5rem .85rem; }
+  .trabalho-client img{ height:40px; }
   .trabalho-stats{ grid-template-columns:1fr 1fr; padding:0; }
   .trabalho-stat{ padding:1.3rem var(--gutter); }
   .trabalho-stat__value{ font-size:1.45rem; }

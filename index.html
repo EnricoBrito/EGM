@@ -22,13 +22,16 @@
   "name": "EGM",
   "alternateName": "Evolution, Growth & Modernization",
   "description": "Sites, sistemas, bots com IA no WhatsApp e tráfego pago, sob medida.",
-  "email": "egm.dev@gmail.com",
+  "email": "egmtecbr@gmail.com",
   "url": "https://www.egm.tec.br/",
   "logo": "https://www.egm.tec.br/assets/logo.png",
   "founder": [
     { "@type": "Person", "name": "Enrico de Almeida", "jobTitle": "Bots e automações com IA" },
-    { "@type": "Person", "name": "Mateus Rodrigues", "jobTitle": "Sistemas e sites" },
+    { "@type": "Person", "name": "Mateus Rodrigues", "jobTitle": "Sistemas" },
     { "@type": "Person", "name": "Gustavo Carneiro", "jobTitle": "Marketing e anúncios" }
+  ],
+  "member": [
+    { "@type": "Person", "name": "Nicolas Moreira", "jobTitle": "Sites" }
   ]
 }
 </script>
@@ -45,7 +48,7 @@
 
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#top" class="nav__logo">EGM</a>
+    <a href="#top" class="nav__logo" aria-label="EGM, página inicial"><img src="assets/logo-mark.svg" alt="" width="29" height="32"></a>
     <nav class="nav__links" aria-label="Navegação principal">
       <a href="#servicos">o que fazemos</a>
       <a href="#processo">como trabalhamos</a>
@@ -145,6 +148,57 @@
     </div>
   </section>
 
+  <!-- A DIFERENÇA: sem bot x com bot (animação em CSS; roda só quando está na tela — js/main.js) -->
+  <section class="race" id="diferenca" aria-labelledby="raceTitle">
+    <div class="section-inner">
+      <p class="eyebrow">Veja a diferença</p>
+      <h2 class="section-title" id="raceTitle">Dois atendimentos. Só um deixa o cliente esperando.</h2>
+      <div class="race__phones" role="img" aria-label="Comparação de atendimento no WhatsApp. Sem bot, o cliente manda mensagem, fica aguardando e sai da conversa. Com o bot da EGM, ele escolhe o que procura e a faixa de valor, vê a opção ideal e o pedido é separado na hora.">
+        <div class="race__col">
+          <p class="race__tag race__tag--off">Sem bot</p>
+          <div class="race__phone" aria-hidden="true">
+            <div class="race__screen">
+              <div class="race__head">Sua empresa <span>· WhatsApp</span></div>
+              <div class="race__chat">
+                <div class="race__pill race__a ra8">Cliente saiu da conversa</div>
+                <div class="race__msg race__msg--them race__msg--wait race__a ra2"><span class="race__dot"></span><span class="race__dot"></span><span class="race__dot"></span> aguardando resposta</div>
+                <div class="race__msg race__msg--me race__a ra1">Oi, vi o anúncio de vocês. Pode me ajudar?</div>
+              </div>
+            </div>
+          </div>
+          <p class="race__caption">O cliente espera, esfria e acaba indo para quem respondeu primeiro.</p>
+        </div>
+        <div class="race__col">
+          <p class="race__tag race__tag--on">Com o bot da EGM</p>
+          <div class="race__phone" aria-hidden="true">
+            <div class="race__screen">
+              <div class="race__head">Sua empresa <span>· WhatsApp</span></div>
+              <div class="race__chat">
+                <div class="race__msg race__msg--me race__a ra1">Oi, vi o anúncio de vocês. Pode me ajudar?</div>
+                <div class="race__msg race__msg--them race__a ra2">Olá! Como posso te ajudar? Ver opções, tirar dúvidas, pedir ou agendar.</div>
+                <div class="race__msg race__msg--me race__a ra3">Quero ver as opções</div>
+                <div class="race__msg race__msg--them race__a ra4">Qual faixa de valor você procura?</div>
+                <div class="race__msg race__msg--me race__a ra5">Até R$ 500</div>
+                <div class="race__msg race__msg--them race__a ra6"><strong>Opção ideal para você</strong><br><span>Escolhida pelo que você contou.</span></div>
+                <div class="race__msg race__msg--me race__a ra7">Gostei! Como faço pra fechar?</div>
+                <div class="race__msg race__msg--them race__a ra8">Pronto! Já separei pra você e te passo os próximos passos.</div>
+              </div>
+            </div>
+          </div>
+          <p class="race__caption">O bot pergunta, mostra a opção certa e fecha o pedido na hora.</p>
+        </div>
+      </div>
+      <div class="race__nav">
+        <button type="button" class="race__next" data-dir="next" aria-label="Ver o atendimento com o bot da EGM"><span class="race__next-label">Ver com a EGM</span><span class="race__arrow" aria-hidden="true">→</span></button>
+      </div>
+      <div class="race__actions">
+        <a href="orcamento/?servico=bot" class="btn btn--primary">Quero um atendimento assim</a>
+        <a href="#trabalhos" class="btn btn--ghost">Ver trabalhos que já fizemos</a>
+      </div>
+      <p class="race__note">Simulação ilustrativa de um atendimento automático criado pela EGM. O roteiro é adaptado ao seu negócio.</p>
+    </div>
+  </section>
+
   <!-- COMO TRABALHAMOS -->
   <section class="process" id="processo">
     <div class="section-inner">
@@ -161,7 +215,7 @@
   <section class="portfolio section-tint" id="trabalhos">
     <div class="section-inner">
       <p class="eyebrow">Trabalhos</p>
-      <h2 class="section-title">Projetos que já estão funcionando.</h2>
+      <h2 class="section-title">Projetos que a gente já fez.</h2>
       <div class="portfolio__grid" id="portfolioGrid">
         <!-- cards carregados de data/projects.json -->
       </div>
@@ -174,7 +228,7 @@
 
       <div class="about__intro">
         <p class="eyebrow">Quem somos</p>
-        <h2 class="section-title">Três pessoas, cada uma cuidando de uma parte do seu projeto.</h2>
+        <h2 class="section-title">Quatro pessoas, cada uma cuidando de uma parte do seu projeto.</h2>
         <p class="about__lead"><strong>EGM</strong> vem de <em>Evolution, Growth &amp; Modernization</em>: evolução, crescimento e modernização. Aqui você fala direto com quem está fazendo, sem intermediário.</p>
       </div>
 
@@ -195,9 +249,19 @@
             <img src="assets/mateus.png" alt="Foto de Mateus Rodrigues" width="800" height="1000" loading="lazy" decoding="async">
           </div>
           <h3 class="member__name">Mateus Rodrigues</h3>
-          <p class="member__role">Sistemas e sites</p>
-          <p class="member__bio">Entende como a sua empresa funciona e cria o sistema e o site em cima disso.</p>
-          <div class="member__fronts"><a href="#servicos" class="member__front">Sistema</a><a href="#servicos" class="member__front">Site</a></div>
+          <p class="member__role">Sistemas</p>
+          <p class="member__bio">Entende como a sua empresa funciona e cria o sistema em cima disso.</p>
+          <div class="member__fronts"><a href="#servicos" class="member__front">Sistema</a></div>
+        </article>
+
+        <article class="member" role="listitem">
+          <div class="member__photo" data-initials="NM">
+            <img src="assets/nicolas.png" alt="Foto de Nicolas Moreira" width="640" height="800" loading="lazy" decoding="async">
+          </div>
+          <h3 class="member__name">Nicolas Moreira</h3>
+          <p class="member__role">Sites</p>
+          <p class="member__bio">Cria o site da sua empresa do zero, bonito e rápido no celular.</p>
+          <div class="member__fronts"><a href="#servicos" class="member__front">Site</a></div>
         </article>
 
         <article class="member" role="listitem">
@@ -213,7 +277,7 @@
       </div>
 
       <p class="team__together">
-        Na Smart Auto, os três trabalharam juntos: o anúncio traz o cliente, o bot atende no WhatsApp e o sistema organiza a venda.
+        Na Smart Auto, o anúncio traz o cliente, o bot atende no WhatsApp e o sistema organiza a venda.
         <a href="trabalhos/smart-auto/" class="team__together-link">Ver esse trabalho</a>
       </p>
 
@@ -244,7 +308,7 @@
     </div>
     <div class="footer__col">
       <p class="footer__label">contato</p>
-      <a href="mailto:egm.dev@gmail.com">egm.dev@gmail.com</a>
+      <a href="mailto:egmtecbr@gmail.com">egmtecbr@gmail.com</a>
       <a href="https://wa.me/5511942544758" target="_blank" rel="noopener">WhatsApp</a>
     </div>
     <div class="footer__col">

@@ -16,10 +16,11 @@
       avoidStrength: 0.72,
       cellsAcross: 17, cellsAcrossMobile: 6, spacing: [58, 92],
       maxLinks: 4, lineAlpha: 0.3, nodeAlpha: 0.8,
+      ambient: true,
       seed: 11
     });
     window.EGM_initNodeGraph(document.getElementById('nodegraphCalcPromo'), {
-      cellsAcross: 13, spacing: [64, 104], lineAlpha: 0.2, pulses: true, seed: 5,
+      cellsAcross: 13, spacing: [64, 104], lineAlpha: 0.2, pulses: true, seed: 5, ambient: true,
       avoid: document.querySelector('.calc-promo__inner'), avoidStrength: 0.8
     });
   }
@@ -55,6 +56,53 @@
       el.style.transform = `perspective(700px) rotateX(${(-py * 5).toFixed(2)}deg) rotateY(${(px * 5).toFixed(2)}deg) translateY(-2px)`;
     });
     el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+  }
+
+  /* A DIFERENÇA — a animação só corre enquanto a seção está na tela */
+  const raceEl = document.getElementById('diferenca');
+  if (raceEl && 'IntersectionObserver' in window && !reduceMotion) {
+    raceEl.classList.add('race--ready');
+    new IntersectionObserver((entries) => {
+      entries.forEach((en) => raceEl.classList.toggle('is-live', en.isIntersecting));
+    }, { threshold: 0.25 }).observe(raceEl);
+  }
+  /* A DIFERENÇA no celular: um atendimento por vez; botão (ou arrastar) troca, e a conversa recomeça */
+  const racePhones = document.querySelector('.race__phones');
+  const raceBtn = document.querySelector('.race__next');
+  if (racePhones && raceBtn) {
+    const cols = racePhones.querySelectorAll('.race__col');
+    const btnLabel = raceBtn.querySelector('.race__next-label');
+    const btnArrow = raceBtn.querySelector('.race__arrow');
+    let current = 0, raceTick = false;
+    const restart = (col) => {
+      const items = col.querySelectorAll('.race__a, .race__dot');
+      items.forEach((el) => { el.style.animation = 'none'; });
+      void col.offsetWidth;
+      items.forEach((el) => { el.style.animation = ''; });
+    };
+    const setCurrent = (idx) => {
+      if (idx === current) return;
+      current = idx;
+      const back = idx === 1;
+      raceBtn.dataset.dir = back ? 'back' : 'next';
+      btnLabel.textContent = back ? 'Ver sem bot' : 'Ver com a EGM';
+      btnArrow.textContent = back ? '←' : '→';
+      raceBtn.setAttribute('aria-label', back ? 'Voltar para o atendimento sem bot' : 'Ver o atendimento com o bot da EGM');
+      if (cols[idx]) restart(cols[idx]);
+    };
+    racePhones.addEventListener('scroll', () => {
+      if (raceTick) return;
+      raceTick = true;
+      requestAnimationFrame(() => {
+        raceTick = false;
+        const max = racePhones.scrollWidth - racePhones.clientWidth;
+        setCurrent(max > 0 && racePhones.scrollLeft > max / 2 ? 1 : 0);
+      });
+    }, { passive: true });
+    raceBtn.addEventListener('click', () => {
+      const max = racePhones.scrollWidth - racePhones.clientWidth;
+      racePhones.scrollTo({ left: current === 0 ? max : 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
   }
 
   makeRevealable('.service-card');

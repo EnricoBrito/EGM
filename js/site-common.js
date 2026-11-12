@@ -10,6 +10,17 @@
         corrigida quando esse conteúdo termina de carregar (a menos que a
         pessoa já tenha rolado por conta própria). */
   const navEl = document.getElementById('nav');
+
+  /* ---------- rolagem: uma única escuta, no máximo uma atualização por quadro ---------- */
+  const scrollTasks = [];
+  const onScrollFrame = (fn) => scrollTasks.push(fn);
+  let scrollQueued = false;
+  window.addEventListener('scroll', () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => { scrollQueued = false; scrollTasks.forEach((fn) => fn()); });
+  }, { passive: true });
+
   const navH = () => (navEl ? navEl.offsetHeight : 0);
   const setNavVar = () => document.documentElement.style.setProperty('--nav-h', navH() + 'px');
   setNavVar();
@@ -64,6 +75,34 @@
     navToggle.addEventListener('click', () => setOpen(!navLinks.classList.contains('is-open')));
     navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    document.addEventListener('click', (e) => {
+      if (navLinks.classList.contains('is-open') && !navEl.contains(e.target)) setOpen(false);
+    });
+  }
+
+  /* ---------- menu: sombra suave depois que a página rola ---------- */
+  if (navEl) {
+    const onScrollNav = () => navEl.classList.toggle('is-scrolled', window.scrollY > 8);
+    onScrollFrame(onScrollNav);
+    onScrollNav();
+  }
+
+  /* ---------- menu: marca o link da seção que está na tela ---------- */
+  const spy = [...document.querySelectorAll('.nav__links a[href*="#"]')].map((a) => {
+    const u = new URL(a.href, location.href);
+    if (u.origin !== location.origin || u.pathname !== location.pathname) return null;
+    const el = targetOf(u.hash);
+    return el ? { a, el } : null;
+  }).filter(Boolean);
+  if (spy.length && 'IntersectionObserver' in window) {
+    const seen = new Set();
+    const spyIo = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) seen.add(en.target); else seen.delete(en.target); });
+      spy.forEach(({ a }) => a.removeAttribute('aria-current'));
+      const current = spy.filter(({ el }) => seen.has(el)).pop();   // a mais embaixo entre as visíveis na faixa
+      if (current) current.a.setAttribute('aria-current', 'location');
+    }, { rootMargin: '-35% 0px -60% 0px' });                         // faixa fina um pouco acima do meio da tela
+    spy.forEach(({ el }) => spyIo.observe(el));
   }
 
   /* ---------- barra de progresso de rolagem ---------- */
@@ -72,9 +111,9 @@
     const updateProgress = () => {
       const h = document.documentElement;
       const max = h.scrollHeight - h.clientHeight;
-      progressBar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+      progressBar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
     };
-    window.addEventListener('scroll', () => requestAnimationFrame(updateProgress), { passive: true });
+    onScrollFrame(updateProgress);
     updateProgress();
   }
 
@@ -93,7 +132,7 @@
     const hero = document.querySelector('.hero, .trabalho-hero, .doc-hero');
     const showAfter = () => (hero ? hero.offsetHeight * 0.6 : 400);
     const updateFloatCta = () => floatCta.classList.toggle('is-visible', window.scrollY > showAfter());
-    window.addEventListener('scroll', () => requestAnimationFrame(updateFloatCta), { passive: true });
+    onScrollFrame(updateFloatCta);
     updateFloatCta();
 
     const parkers = document.querySelectorAll('.calc-promo, .footer, .trabalho-cta, .doc-cta');

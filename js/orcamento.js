@@ -10,7 +10,7 @@
    * (usado pelos botões "Pedir orçamento" do site) e ?ref=id-do-trabalho.
    */
   const WHATSAPP_NUMBER = '5511942544758';
-  const CASES = { 'smart-auto': 'Smart Auto Veículos', 'plus-camas': 'Plus Camas e Colchões' };
+  const CASES = { 'smart-auto': 'Smart Auto Veículos', 'plus-camas': 'Plus Camas e Colchões', 'casa-do-colchao': 'Casa do Colchão' };
 
   const form = document.getElementById('orcForm');
   const resumoEl = document.getElementById('orcResumo');

@@ -81,22 +81,22 @@
   {
     "id": "plus-camas",
     "nome": "Plus Camas e Colchões",
-    "categoria": "Distribuidora de colchões",
+    "categoria": "Distribuidora de camas",
     "services": [
       "trafego",
       "bot"
     ],
-    "summary": "Anúncios que atraem interessados e um bot que atende como um vendedor: tira dúvidas, indica o colchão certo e fecha o pedido no WhatsApp.",
-    "detail": "Os anúncios trazem as pessoas pra conversa, e o bot assume dali: pergunta se é pra casal ou solteiro, o quanto a pessoa gosta do colchão firme e o que ela procura, indica o modelo certo e fecha o pedido já conferindo o endereço de entrega.",
+    "summary": "Anúncios que atraem interessados e um bot que atende como um vendedor: tira dúvidas, indica a cama certa e fecha o pedido no WhatsApp.",
+    "detail": "Os anúncios trazem as pessoas pra conversa, e o bot assume dali: pergunta se é pra casal ou solteiro e o que a pessoa procura, indica o modelo de cama certo e fecha o pedido já conferindo o endereço de entrega.",
     "metric": "Atendimento 100% automático, do anúncio ao pedido fechado",
     "entregas": [
       {
         "servico": "trafego",
-        "texto": "Anúncios no Instagram e no Facebook que levam os interessados direto pra conversa no WhatsApp."
+        "texto": "Anúncios no Instagram e no Facebook que levam quem procura cama direto pra conversa no WhatsApp."
       },
       {
         "servico": "bot",
-        "texto": "Atende como um bom vendedor: faz as perguntas certas, indica o colchão ideal e fecha o pedido conferindo o endereço de entrega."
+        "texto": "Atende como um bom vendedor: faz as perguntas certas, indica a cama ideal e fecha o pedido conferindo o endereço de entrega."
       }
     ],
     "imagens": "plus",
@@ -105,5 +105,39 @@
       "Enviando imagens",
       "Anúncio no Instagram"
     ]
+  },
+  {
+    "id": "casa-do-colchao",
+    "nome": "Casa do Colchão",
+    "categoria": "Especialista em colchões",
+    "services": [
+      "trafego",
+      "bot",
+      "site"
+    ],
+    "summary": "Anúncios que atraem interessados, um bot que atende como um vendedor de colchões e um site novo pra apresentar a empresa.",
+    "detail": "Os anúncios trazem as pessoas pra conversa, e o bot assume dali: pergunta que tipo de colchão a pessoa procura (solteiro, casal ou ortopédico) e a faixa de preço, mostra o modelo ideal com foto, tira dúvidas sobre garantia e entrega e já separa o colchão pra ela. E o site novo, feito do zero, apresenta a Casa do Colchão na internet.",
+    "metric": "Do anúncio ao colchão separado, com atendimento 100% automático",
+    "entregas": [
+      {
+        "servico": "trafego",
+        "texto": "Anúncios no Instagram e no Facebook que levam quem procura colchão direto pra conversa no WhatsApp."
+      },
+      {
+        "servico": "bot",
+        "texto": "Atende como um bom vendedor: pergunta o tipo de colchão e a faixa de preço, mostra o modelo ideal com foto, responde sobre garantia e entrega e separa o colchão pro cliente."
+      },
+      {
+        "servico": "site",
+        "texto": "Site novo, feito do zero, rápido e fácil de usar no celular, pra apresentar a Casa do Colchão na internet."
+      }
+    ],
+    "imagens": "casa",
+    "gallery": [
+      "Bot atendendo um cliente no WhatsApp",
+      "Bot enviando imagens de produtos",
+      "Anúncio no Facebook"
+    ],
+    "logo": "assets/casa-logo.png"
   }
 ]
